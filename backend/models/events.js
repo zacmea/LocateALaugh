@@ -14,7 +14,8 @@ const eventSchema = new mongoose.Schema({
     imageURL: String,
     tmID: String,
     genreClassifications: [String],
-    lalUsersAttending: int32
+    lalUsersAttending: int32,
+    createdBy: String
 });
 
 const Event = mongoose.model('Event', eventSchema);
