@@ -24,8 +24,8 @@ router.get('/', function (req, res) {
 //Delete Route - DELETE /events/:id
 router.delete('/:id', function (req, res) {
     Events.findByIdAndDelete(req.params.id)
-        .then(() => res.send("Bookmark deleted successfully"))
-        .catch(err => res.send("Error deleting bookmark"));
+        .then(() => res.send("Event deleted successfully"))
+        .catch(err => res.send("Error deleting event"));
 })
 
 //Update Route - PUT /events/:id
