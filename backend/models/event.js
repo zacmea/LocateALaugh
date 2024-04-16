@@ -15,7 +15,7 @@ const eventSchema = new mongoose.Schema({
     tmID: String,
     genreClassifications: [String],
     lalUsersAttending: int32,
-    createdBy: String
+    createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });
 
 const Event = mongoose.model('Event', eventSchema);
