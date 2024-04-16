@@ -1,3 +1,10 @@
+
+
+const artistController = require('./controllers/artistController')
+
+
+app.use("/artists", artistController)
+
 /* Require modules
 --------------------------------------------------------------- */
 require('dotenv').config()
