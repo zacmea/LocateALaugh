@@ -3,7 +3,7 @@
 // Require necessary modules
 const express = require('express');
 const router = express.Router();
-const Events = require('../models/events');
+const Event = require('../models/event');
 
 
 //Index Route - GET all /events
