@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 const artistSchema = new mongoose.Schema({
   name: String,
-//   genre: String,
+  description: String,
+  webpage: String,
+  followers: [String],
   created_by: {type: mongoose.Types.ObjectId, ref:"user"}
 })
 

@@ -4,7 +4,7 @@ const Artists = require('../models/atist');
 
 //INDEX PAGE
 router.get('/', function (req, res) {
-    db.Artist.find({})
+    Artists.find({})
     .then((artists) => res.json(artists))
     .catch((err) => res.json({ error: err.message }));
 });
@@ -22,16 +22,6 @@ router.post('/', async (req, res) => {
         } catch(err) {
         console.log(err);
         }
-});
-
-//SHOW ROUTE
-router.get("/:id", (req, res) => {
-    db.Artist.findById(req.params.id)
-      .then((artist) => {
-        if (!artist) res.status(404).json({ error: "Artist is not found" });
-        else res.json(artist);
-      })
-      .catch((err) => res.json({ error: err.message }));
 });
 
 //UPDATE ROUTE
