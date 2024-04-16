@@ -3,13 +3,13 @@
 // Require necessary modules
 const express = require('express');
 const router = express.Router();
-const Event = require('../models/events');
+const Events = require('../models/events');
 
 
-//Index Route - GET /events
+//Index Route - GET all /events
 router.get('/', function (req, res) {
     try {
-    Event.find({})
+    Events.find({})
         .then(events => {
             res.json(events);
         });
@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
 
 //Delete Route - DELETE /events/:id
 router.delete('/:id', function (req, res) {
-    Event.findByIdAndDelete(req.params.id)
+    Events.findByIdAndDelete(req.params.id)
         .then(() => res.send("Bookmark deleted successfully"))
         .catch(err => res.send("Error deleting bookmark"));
 })
@@ -31,7 +31,7 @@ router.delete('/:id', function (req, res) {
 //Update Route - PUT /events/:id
 router.put('/:id', async (req, res) => {
     const updatedEvent = {...req.body};
-    await Event.findByIdAndUpdate(req.params.id, updatedEvent, {new: true})
+    await Events.findByIdAndUpdate(req.params.id, updatedEvent, {new: true})
     .then((event) => {
         res.json(event);
     })
@@ -43,7 +43,7 @@ router.put('/:id', async (req, res) => {
 //Create Route - POST /events
 router.post('/', async (req, res) => {
     try {
-        const newEvent = await Event.create(req.body);
+        const newEvent = await Events.create(req.body);
         res.json(newEvent);
     }
     catch (err) {
@@ -54,3 +54,4 @@ router.post('/', async (req, res) => {
 //Edit Route - handled in front end
 
 //Show route - handled in front end
+module.exports = router;
