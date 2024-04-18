@@ -9,7 +9,7 @@ const Event = require('../models/event');
 //Index Route - GET all /events
 router.get('/', function (req, res) {
     try {
-    Events.find({})
+    Event.find({})
         .then(events => {
             res.json(events);
         });
@@ -23,15 +23,15 @@ router.get('/', function (req, res) {
 
 //Delete Route - DELETE /events/:id
 router.delete('/:id', function (req, res) {
-    Events.findByIdAndDelete(req.params.id)
-        .then(() => res.send("Bookmark deleted successfully"))
-        .catch(err => res.send("Error deleting bookmark"));
+    Event.findByIdAndDelete(req.params.id)
+        .then(() => res.send("Event deleted successfully"))
+        .catch(err => res.send("Error deleting event"));
 })
 
 //Update Route - PUT /events/:id
 router.put('/:id', async (req, res) => {
     const updatedEvent = {...req.body};
-    await Events.findByIdAndUpdate(req.params.id, updatedEvent, {new: true})
+    await Event.findByIdAndUpdate(req.params.id, updatedEvent, {new: true})
     .then((event) => {
         res.json(event);
     })
@@ -43,7 +43,7 @@ router.put('/:id', async (req, res) => {
 //Create Route - POST /events
 router.post('/', async (req, res) => {
     try {
-        const newEvent = await Events.create(req.body);
+        const newEvent = await Event.create(req.body);
         res.json(newEvent);
     }
     catch (err) {
