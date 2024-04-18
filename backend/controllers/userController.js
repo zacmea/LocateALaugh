@@ -60,14 +60,32 @@ function ensureLoggedIn(req, res, next ){
 }
 
 
-// show a user
-
-// show all users
+// fetch a user details
+async function getUserInfo(){
+    try {
+    const theUser = await User.find()
+    return theUser
+} 
+catch (err){
+    console.log(err)
+}}
+getUserInfo()
 
 // delete a user
+router.delete("/:id", (req, res) => {
+    User.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect("/"))
+    .catch(() => res.send('Member not deleted successfully'))
+    });
 
 // update a user
-
+router.put("/:id", async (req, res) => {
+    await User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+     // console.log(req.params.id)
+     .then((user) => res.redirect("/users/"+ req.params.id ) 
+    // what is the show page route?
+     );
+   });
 
 
 
