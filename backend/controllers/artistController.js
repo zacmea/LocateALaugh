@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Artists = require('../models/atist');
+const Artists = require('../models/artist');
 
 //INDEX PAGE
 router.get('/', function (req, res) {
