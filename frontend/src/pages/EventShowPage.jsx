@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const EventShowPage = () => {
-    //code
+    //js code
     const params = useParams();
     const {
         selectedEvent,
