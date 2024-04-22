@@ -3,25 +3,25 @@
 const artistController = require('./controllers/artistController')
 
 
-app.use("/artists", artistController)
+// app.use("/artists", artistController)
 
 /* Require modules
 --------------------------------------------------------------- */
 require('dotenv').config()
 const path = require('path')
 const express = require('express')
-const livereload = require("livereload");
-const connectLiveReload = require("connect-livereload");
+// const livereload = require("livereload");
+// const connectLiveReload = require("connect-livereload");
 const morgan = require('morgan')
 const cors = require('cors')
 const PORT = process.env.PORT || 3000
 
 /* Require the db connection, models, and seed data
 --------------------------------------------------------------- */
-const db = require('./models');
+const db = require('./models/database');
 
 const artistsController = require('./controllers/artistController')
-const eventsController = require('./controllers/eventsController')
+const eventsController = require('./controllers/eventController')
 const userController = require('./controllers/userController')
 
 /* Create the Express app
@@ -29,20 +29,20 @@ const userController = require('./controllers/userController')
 const app = express();
 /* Configure the app to refresh the browser when nodemon restarts
 --------------------------------------------------------------- */
-const liveReloadServer = livereload.createServer();
+// const liveReloadServer = livereload.createServer();
 
-liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 100);
-});
+// liveReloadServer.server.once("connection", () => {
+//     setTimeout(() => {
+//         liveReloadServer.refresh("/");
+//     }, 100);
+// });
 
 /* Middleware (app.use)
 --------------------------------------------------------------- */
 
 app.use(cors())
 app.use(express.static('public'))
-app.use(connectLiveReload());
+// app.use(connectLiveReload());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

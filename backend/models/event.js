@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const eventSchema = new mongoose.Schema({
     name: String,
     date: Date,
-    startLocalTime: int32,
-    endLocalTime: int32,
+    startLocalTime: Number,
+    endLocalTime: Number,
     description: String,
     address: String,
     city: String,
@@ -14,7 +14,7 @@ const eventSchema = new mongoose.Schema({
     imageURL: String,
     tmID: String,
     genreClassifications: [String],
-    lalUsersAttending: int32,
+    lalUsersAttending: Number,
     createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });
 
