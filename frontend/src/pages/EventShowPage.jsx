@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const EventShowPage = () => {
-    //code
+    //js code
     const params = useParams();
     const {
         selectedEvent,
@@ -31,6 +31,7 @@ const EventShowPage = () => {
             <img src={imageURL} alt={name} />
             <hr />
             <h2>`${attractionNames} at ${locationName}`</h2>
+            <h3>`Buy Tickets: ${TICKET-LINK-HERE}`</h3>
             <p>`${address}, ${city}, ${state} ${zip}`</p>
             <p>`${date} at ${startLocalTime} - ${endLocalTime}`</p>
             <p>{description}</p>

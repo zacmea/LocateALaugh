@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FaUser } from 'react-icons/fa'
 
 const Header = () => {
     // To be replaced with tailwind css
@@ -14,16 +15,18 @@ const Header = () => {
         <header>
             <h1>Locate A Laugh</h1>
             <nav style = {navStyle}>
-                <Link to="/">
+                <Link to="/home">
                     <div>HOME</div>
                 </Link>
                 <Link to="/events"> 
-                {/* Confirm correct route */}
                     <div>VIEW OUR EVENTS</div>
                 </Link>
                 <Link to="/artists">
-{/* Confirm the correct route */}
                     <div>VIEW OUR ARTISTS</div>
+                </Link>
+                <Link to="/user">
+                    <FaUser id="user-icon"/>
+                    <div>USER</div>
                 </Link>
             </nav>
         </header>
