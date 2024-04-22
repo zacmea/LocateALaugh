@@ -9,14 +9,14 @@ function CreateArtist() {
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSave({
+        addArtist({
             name,
             genre,
             description
         });
     };
 
-    const onSave = (artistData) => {
+    const addArtist = (artistData) => {
         fetch('http://localhost:3000/artists', {
             method: 'POST',
             headers: {
