@@ -12,9 +12,10 @@ const eventSchema = new mongoose.Schema({
     zip: String,
     attractionNames: [String],
     imageURL: String,
-    tmID: String,
+    placeName: String,
+    tmID: String,  //TicketMaster ID
     genreClassifications: [String],
-    // lalUsersAttending: int32,
+    // lalUsersAttending: int32, lal = LocateALaugh
     createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });
 
