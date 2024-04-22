@@ -12,7 +12,7 @@ db.on('connected', function () {
 // Export models and seed data to `server.js`
 module.exports = {
     Artist: require('./artist'),
-    Events: require('./events'),
+    Events: require('./event'),
     User: require('./user'),
     seedData: require('./seed')
 }

@@ -12,6 +12,7 @@ const EventDetailsCard = (props) => {
         startLocalTime,
         imageURL,
         attractionNames,
+        locationName,
         userUpcomingEvents,
         comingSoonNearUser,
         userMightLike,
@@ -33,6 +34,7 @@ const EventDetailsCard = (props) => {
                     <Card.Text>
                         <p>{date}</p>
                         <p>{startLocalTime}</p>
+                        <p>{placeName}</p>
                     </Card.Text>
                 </Card.Body>
             </Card>
