@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import ArtistList from './pages/ArtistList';
-import CreateArtist from './pages/CreateArtist';
+import ArtistList from './pages/ArtistIndexPage';
+import CreateArtist from './pages/CreateNewArtistPage';
 
 
 

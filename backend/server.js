@@ -1,7 +1,5 @@
 
 
-const artistController = require('./controllers/artistController')
-
 
 // app.use("/artists", artistController)
 
@@ -20,8 +18,8 @@ const PORT = process.env.PORT || 3000
 --------------------------------------------------------------- */
 const db = require('./models/database');
 
-const artistsController = require('./controllers/artistController')
-const eventsController = require('./controllers/eventController')
+const artistController = require('./controllers/artistController')
+const eventController = require('./controllers/eventController')
 const userController = require('./controllers/userController')
 
 /* Create the Express app
