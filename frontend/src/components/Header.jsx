@@ -24,7 +24,7 @@ const Header = () => {
                 <Link to="/artists">
                     <div>VIEW OUR ARTISTS</div>
                 </Link>
-                <Link to="/user">
+                <Link to="/login">
                     <FaUser id="user-icon"/>
                     <div>USER</div>
                 </Link>
