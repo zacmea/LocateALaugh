@@ -19,7 +19,7 @@ const Header = () => {
                     <div>HOME</div>
                 </Link>
                 <Link to="/events"> 
-                    <div>VIEW OUR EVENTS</div>
+                    <div>VIEW YOUR EVENTS</div>
                 </Link>
                 <Link to="/artists">
                     <div>VIEW OUR ARTISTS</div>

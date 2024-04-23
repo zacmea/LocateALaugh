@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ArtistList from './pages/ArtistIndexPage';
 import CreateArtist from './pages/CreateNewArtistPage';
-
-
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Auth from './Auth'
 
 function App() {
     return (
