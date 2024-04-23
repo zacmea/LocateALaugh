@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+
+//The startLocalTime and endLocalTime fields will need some parsing to match the format of the API for those fields  ex: 2016-07-27T23:30:00Z
 const AddEventForm = ({ addEvent }) => {
     const navigate = useNavigate();
     const params = useParams();
@@ -44,7 +46,7 @@ const AddEventForm = ({ addEvent }) => {
                 alert('Failed to create event. Please try again.');
             });
     };
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target; //that is, the key name and value of the input field
         setFormData({ ...formData, [name]: value }); //copy the existing form data and update the changed fields
