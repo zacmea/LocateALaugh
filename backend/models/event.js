@@ -4,7 +4,6 @@ const eventSchema = new mongoose.Schema({
     name: String,
     date: Date,
     startLocalTime: Number,
-    endLocalTime: Number,
     description: String,
     address: String,
     city: String,

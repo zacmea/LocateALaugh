@@ -1,6 +1,6 @@
 import React from 'react';
 import EventDetailsCard from './EventDetailsCard';
-import {upcomingEvents} from SOMEWHERE;
+import {registeredEvents} from SOMEWHERE;
 
 const Carousel_UserUpcomingEvents = ({upcomingEvents}) => {
     return (
