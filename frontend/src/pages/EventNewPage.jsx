@@ -228,4 +228,4 @@ const AddEventForm = ({ addEvent }) => {
     );
 };
 
-export default AddEventForm;
+export default AddNewEvent;

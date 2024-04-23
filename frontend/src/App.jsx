@@ -15,6 +15,9 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/artists" element={<ArtistList />} />
                     <Route path="/artists/create" element={<CreateArtist />} />
+                    <Route path="/events" element={<EventList />} />
+                    <Route path="/events/create" element={<AddNewEvent />} />
+                    <Route path="/event/:id" element={<EventDetails />} />
                 </Routes>
             </div>
         </Router>

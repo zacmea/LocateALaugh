@@ -1,8 +1,8 @@
 import React from 'react';
 import EventDetailsCard from './EventDetailsCard';
-import {registeredEvents} from SOMEWHERE;
+import {userRegisteredEvents} from SOMEWHERE;
 
-const Carousel_UserUpcomingEvents = ({upcomingEvents}) => {
+const Carousel_UserRegisteredEvents = ({upcomingEvents}) => {
     return (
         <div>
             {events && events.map(event => (
@@ -13,8 +13,7 @@ const Carousel_UserUpcomingEvents = ({upcomingEvents}) => {
                     startLocalTime={event.startLocalTime}
                     imageURL={event.imageURL}
                     attractionNames={event.attractionNames}
-                    userUpcomingEvents={event.userUpcomingEvents}
-                    comingSoonNearUser={event.comingSoonNearUser}
+                    userRegisteredEvents={event.userRegisteredEvents}
                     userMightLike={event.userMightLike}
                 />
             ))}
@@ -22,4 +21,4 @@ const Carousel_UserUpcomingEvents = ({upcomingEvents}) => {
     );
 };
 
-export default Carousel_UserUpcomingEvents;
+export default Carousel_UserRegisteredEvents;

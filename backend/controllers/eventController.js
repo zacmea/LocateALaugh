@@ -21,6 +21,7 @@ router.get('/', function (req, res) {
 
 //New Route - handled in front end
 
+
 //Delete Route - DELETE /events/:id
 router.delete('/:id', function (req, res) {
     Event.findByIdAndDelete(req.params.id)
@@ -43,8 +44,9 @@ router.put('/:id', async (req, res) => {
 //Create Route - POST /events
 router.post('/', async (req, res) => {
     try {
-        const newEvent = await Event.create(req.body);
-        res.json(newEvent);
+        const newEventInfo = {...req.body};
+        const newEvent = await Event.create(newEventInfo);
+        res.json({newEvent});
     }
     catch (err) {
         res.status(400).send("Error creating event");
