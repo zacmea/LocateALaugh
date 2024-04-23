@@ -3,10 +3,11 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css' 
 
+const events = [] //need to fetch data from mongodb for the users.
 
-
-function schedule() {
+function Scheduler() {
     const [value, onchange] = useState(new Date())
+    const [events, setEvents] = useState(events)
 
   return (
     <div>
@@ -14,3 +15,5 @@ function schedule() {
     </div>
   );
 }
+
+export default Scheduler;

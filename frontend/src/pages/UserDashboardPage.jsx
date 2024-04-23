@@ -1,10 +1,15 @@
 import React from 'react';
+<<<<<<< HEAD
 import Carousel_UserRegisteredEvents from '../components/events/Carousel_UserUpcomingEvents';
 import Carousel_ComingSoonNearUser from '../components/events/Carousel_ComingSoonNearUser';
+=======
+import Carousel_UserUpcomingEvents from '../components/events/Carousel_UserUpcomingEvents';
+// import Carousel_ComingSoonNearUser from '../components/events/Carousel_ComingSoonNearUser';
+>>>>>>> origin/aleena3
 import Carousel_UserMightLike from '../components/events/Carousel_UserMightLike';
-import upcomingEvents from SOMEWHERE;
-import comingSoonNearUser from SOMEWHERE;
-import userMightLike from SOMEWHERE;
+// import upcomingEvents from SOMEWHERE;
+// import comingSoonNearUser from SOMEWHERE;
+// import userMightLike from SOMEWHERE;
 
 const UserDashboard = () => {
     return (
