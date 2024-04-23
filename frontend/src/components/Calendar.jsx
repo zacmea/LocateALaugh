@@ -1,17 +1,16 @@
-//Creating a default calendar app utilizing the reference from https://www.npmjs.com/package/react-calendar
+//Creating a default calendar app utilizing the reference from https://www.geeksforgeeks.org/how-to-create-calendar-in-reactjs/
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css' 
 
-function schedule() {
-    const [value, setValue] = useState(new Date())
 
-const onchange = newValue =>
-setValue(newValue)
+
+function schedule() {
+    const [value, onchange] = useState(new Date())
 
   return (
     <div>
-      <Calendar onChange={setValue} value={value} />
+      <Calendar onChange={onchange} value={value} />
     </div>
   );
 }
