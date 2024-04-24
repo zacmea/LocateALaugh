@@ -1,10 +1,10 @@
-import { name } from "ejs";
-import e from "express";
+// import { name } from "ejs";
+// import e from "express";
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 
-//The startLocalTime and endLocalTime fields will need some parsing to match the format of the API for those fields  ex: 2016-07-27T23:30:00Z
+//The startLocalTime and endLocalTime fields may need some parsing to match the format of the API for those fields  ex: 2016-07-27T23:30:00Z
 const AddEventForm = ({ addEvent }) => {
     const navigate = useNavigate();
     const params = useParams();

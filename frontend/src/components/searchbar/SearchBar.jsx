@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import EventDetailsCard from '../events/EventDetailsCard';
 
 function SearchBar() {
     const [eventQuery, setEventQuery] = useState('');
@@ -78,11 +79,22 @@ function SearchBar() {
             <div className="mt-4 w-full flex flex-wrap justify-center">
                 {searchPerformed ? (
                     results.length > 0 ? (
-                        results.map(attraction => (
-                            <div key={attraction.id} className="m-2 p-3 w-full sm:w-96 bg-gray-800 rounded-lg shadow-md">
-                                <h3 className="text-lg font-bold">{attraction.name}</h3>
-                                <p>Details: {attraction.url || 'No details available'}</p>
-                            </div>
+                        results.map(result => (
+                           <EventDetailsCard 
+                                key={result.id}
+                                name={result.name}
+                                attractionNames={result._embedded.attractions.map(attraction => attraction.name)}
+                                date={result.dates.start.localDate}
+                                startLocalTime={result.dates.start.localTime}
+                                imageURL={result.images[0].url}
+                                url={result.url}
+                                placeName={result._embedded.venues[0].name}
+                            />
+
+                        //    <div key={attraction.id} ">
+                        //         <h3 className="text-lg font-bold">{attraction.name}</h3>
+                        //         <p>Details: {attraction.url || 'No details available'}</p>
+                        //     </div>
                         ))
                     ) : (
                         <p className="text-center">No comedy shows found. Try another search.</p>

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
     name: String,
+    url: String,
     date: Date,
     startLocalTime: Number,
     description: String,
@@ -18,5 +19,5 @@ const eventSchema = new mongoose.Schema({
     createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });
 
-const Event = mongoose.model('Event', eventSchema);
-module.exports = Event;
+const Events = mongoose.model('Event', eventSchema);
+module.exports = Events;

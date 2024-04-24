@@ -1,8 +1,4 @@
 
-
-
-// app.use("/artists", artistController)
-
 /* Require modules
 --------------------------------------------------------------- */
 require('dotenv').config()
@@ -58,7 +54,7 @@ app.get('/seed', function (req, res) {
             db.User.insertMany(db.seedData)
                 .then(addedUser => {
                     console.log(`Added ${addedUser.length} users`)
-                    res.json(addedUsers)
+                    res.json(addedUser)
                 })
         })
 });
