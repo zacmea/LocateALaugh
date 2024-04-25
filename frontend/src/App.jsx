@@ -6,6 +6,8 @@ import CreateArtist from './pages/CreateNewArtistPage';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Auth from './Auth'
+import ArtistShowPage from './pages/ArtistShowPage';
+
 // import Calendar from './components/Calendar';
 // import UserDashboard from './pages/UserDashboardPage'
 
@@ -30,7 +32,7 @@ function App() {
                     {/* <Route path="/events/new" element={<EventNewPage/>}/> */}
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}
                     {/* <Route path="/events/:id" element={<EventShowPage/>}/> */}
-                    {/* <Route path="/artists/:id" element={<ArtistShowPage/>}/> */}
+                    <Route path="/artist/:id" element={<ArtistShowPage />} />
                     {/* <Route path="/user/:id" element={<MyProfile/>}/> */}
                     {/*    */}
                     {/* The path above will have the edit and delete for the events */}
