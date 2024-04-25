@@ -68,7 +68,7 @@ function EventIndex() {
                     ) : (
                         <div>
                             <EventDetailsCard 
-                                key={event.id}
+                                key={event._id}
                                 name={event.name}
                                 attractionNames={event.attractionNames.map(attraction => attraction.name)}
                                 date={event.date}

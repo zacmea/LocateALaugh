@@ -19,6 +19,18 @@ router.get('/', function (req, res) {
     }
 })
 
+//Create Route - POST /events
+router.post('/', async (req, res) => {
+    try {
+        const newEventInfo = {...req.body};
+        const newEvent = await Events.create(newEventInfo);
+        res.json({newEvent});
+    }
+    catch (err) {
+        res.status(400).send("Error creating event");
+    }
+})
+
 //New Route - handled in front end
 
 
@@ -41,17 +53,7 @@ router.put('/:id', async (req, res) => {
     })
 })
 
-//Create Route - POST /events
-router.post('/', async (req, res) => {
-    try {
-        const newEventInfo = {...req.body};
-        const newEvent = await Events.create(newEventInfo);
-        res.json({newEvent});
-    }
-    catch (err) {
-        res.status(400).send("Error creating event");
-    }
-})
+
 
 //Edit Route - handled in front end
 

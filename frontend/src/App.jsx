@@ -7,6 +7,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Auth from './Auth'
 import EventIndexPage from './pages/EventIndexPage'
+import NewEvent from './pages/EventNewPage'
 // import Calendar from './components/Calendar';
 // import UserDashboard from './pages/UserDashboardPage'
 
@@ -29,7 +30,7 @@ function App() {
                    <Route path="/events/list" element={<EventIndexPage/>} />
                     {/* <Route path="/events" element={<Calendar/>}/> */}
                     {/* Aleena to complete incoporating the events to the calendar view */}
-                    {/* <Route path="/events/new" element={<EventNewPage/>}/> */}
+                    <Route path="/events/new" element={<NewEvent/>}/>
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}
                     {/* <Route path="/events/:id" element={<EventShowPage/>}/> */}
                     {/* <Route path="/artists/:id" element={<ArtistShowPage/>}/> */}

@@ -9,8 +9,8 @@ const EventDetailsCard = (props) => {
         selectedEvent,
         url,
         name,
-        date,
-        startLocalTime,
+        dateStartLocalTime,
+        // startLocalTime,
         imageURL,
         attractionNames,
         placeName,
@@ -30,7 +30,7 @@ const EventDetailsCard = (props) => {
                     <Card.Title className="text-lg font-bold  w-full">{attractionNames}</Card.Title>
                     {/* <Card.Subtitle>{name}</Card.Subtitle> */}
                     <Card.Text>
-                        <p className="">{date}  &ensp; at &ensp; {startLocalTime}</p>
+                        <p className="">{dateStartLocalTime}  </p>
                         <br />
                         {/* <p className="flex justify-center">{startLocalTime}</p> */}
                         <p className="italic text-wrap max-w-64">{placeName}</p>
