@@ -3,9 +3,10 @@ const router = require('express').Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
 
 //CREATE ROUTE
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const newUser = new db.User(req.body)
         await newUser.save()

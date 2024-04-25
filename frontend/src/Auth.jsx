@@ -9,7 +9,7 @@ export default function Auth(props){
     })
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:3001/users/login', {
+            const response = await fetch('http://localhost:3001/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ export default function Auth(props){
 
     const handleSignUp = async () => {
         try {
-            const response = await fetch('http://localhost:3001/users', {
+            const response = await fetch('http://localhost:3001/user/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

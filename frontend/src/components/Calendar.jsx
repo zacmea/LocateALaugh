@@ -11,7 +11,7 @@ function Scheduler() {
 
 //FOR FETCHING DATA FROM BACKEND
     useEffect (() => {
-    fetch('https://localhost:3000/user/find/id')
+    fetch(`https://localhost:3000/user/find/${id}`)
     .then (response =>
        response.json())
        .then(data =>{

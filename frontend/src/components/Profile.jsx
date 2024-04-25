@@ -3,7 +3,7 @@ import React from "react";
 const Profile = () => {
   const [user, setUser] = useState()
   useEffect (() => {
-    fetch('https://localhost:3000/user/find/id')
+    fetch(`https://localhost:3000/user/find/${id}`)
     .then (response =>
        response.json())
        .then(data =>{
