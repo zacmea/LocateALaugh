@@ -40,13 +40,10 @@ function App() {
                     <Route path="/events/new" element={<NewEvent/>}/>
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}
                     {/* <Route path="/events/:id" element={<EventShowPage/>}/> */}
-<<<<<<< HEAD
                     {/* <Route path="/artists/:id" element={<ArtistShowPage/>}/> */}
                     <Route path="/user/:id" element={<Profile/>}/>
-=======
                     <Route path="/artist/:id" element={<ArtistShowPage />} />
                     {/* <Route path="/user/:id" element={<MyProfile/>}/> */}
->>>>>>> origin/nails-branch3
                     {/*    */}
                     {/* The path above will have the edit and delete for the events */}
                     <Route path="/artists/create" element={<CreateArtist />} />
