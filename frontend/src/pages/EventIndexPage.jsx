@@ -70,12 +70,12 @@ function EventIndex() {
                             <EventDetailsCard 
                                 key={event.id}
                                 name={event.name}
-                                attractionNames={event._embedded.attractions.map(attraction => attraction.name)}
-                                date={event.dates.start.localDate}
-                                startLocalTime={event.dates.start.localTime}
-                                imageURL={event.images[0].url}
+                                attractionNames={event.attractionNames.map(attraction => attraction.name)}
+                                date={event.date}
+                                startLocalTime={event.StartLocalTime}
+                                imageURL={event.imageURL}
                                 url={event.url}
-                                placeName={event._embedded.venues[0].name}
+                                placeName={event.placeName}
                             />
                             <button onClick={() => setEditEventID(event._id)} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Edit</button>
                             <button onClick={() => handleDelete(event._id)} className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">Delete</button>

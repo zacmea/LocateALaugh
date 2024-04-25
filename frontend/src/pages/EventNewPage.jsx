@@ -8,7 +8,9 @@ import { useParams, useNavigate } from "react-router-dom";
 const AddEventForm = ({ addEvent }) => {
     const navigate = useNavigate();
     const params = useParams();
+
     const [name, setName] = useState("");
+    const [url, setUrl] = useState("");
     const [date, setDate] = useState("");
     const [startLocalTime, setStartLocalTime] = useState("");
     const [endLocalTime, setEndLocalTime] = useState("");
@@ -75,9 +77,9 @@ const AddEventForm = ({ addEvent }) => {
         // If validation passes, call addEvent with formData
         addEvent({
             name,
+            url,
             date,
             startLocalTime,
-            endLocalTime,
             description,
             address,
             city,
@@ -93,19 +95,28 @@ const AddEventForm = ({ addEvent }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Name:</label>
+            <label>Event Title:</label>
             <input 
             type="text" 
             name="name" 
-            value={formData.name} 
+            value={name} 
             onChange={e => setName(e.target.value)} 
             required />
+
+            <label>Event URL:</label>
+            <input
+                type="text"
+                name="url"
+                value={url}
+                onChange={e => setUrl(e.target.value)}
+                required
+            />
 
             <label>Date:</label>
             <input 
             type="date" 
             name="date" 
-            value={formData.date} 
+            value={date} 
             onChange={e => setDate(e.target.value)}
             required />
 
@@ -113,24 +124,15 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="time"
                 name="startLocalTime"
-                value={formData.startLocalTime}
+                value={startLocalTime}
                 onChange={e => setStartLocalTime(e.target.value)}
-                required
-            />
-
-            <label>End Local Time:</label>
-            <input
-                type="time"
-                name="endLocalTime"
-                value={formData.endLocalTime}
-                onChange={e => setEndLocalTime(e.target.value)}
                 required
             />
 
             <label>Description:</label>
             <textarea
                 name="description"
-                value={formData.description}
+                value={description}
                 onChange={e => setDescription(e.target.value)}
                 required
             />
@@ -139,7 +141,7 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="address"
-                value={formData.address}
+                value={address}
                 onChange={e => setAddress(e.target.value)}
                 required
             />
@@ -148,7 +150,7 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="city"
-                value={formData.city}
+                value={city}
                 onChange={e => setCity(e.target.value)}
                 required
             />
@@ -157,7 +159,7 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="state"
-                value={formData.state}
+                value={state}
                 onChange={e => setState(e.target.value)}
                 required
             />
@@ -166,7 +168,7 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="zip"
-                value={formData.zip}
+                value={zip}
                 onChange={e => setZip(e.target.value)}
                 required
             />
@@ -175,7 +177,7 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="attractionNames"
-                value={formData.attractionNames}
+                value={[attractionNames]}
                 onChange={e => setAttractionNames(e.target.value)}
                 required
             />
@@ -184,7 +186,7 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="imageURL"
-                value={formData.imageURL}
+                value={imageURL}
                 onChange={e => setImageURL(e.target.value)}
                 required
             />
@@ -193,16 +195,16 @@ const AddEventForm = ({ addEvent }) => {
             <input  
                 type="text"
                 name="placeName"
-                value={formData.placeName}
+                value={placeName}
                 onChange={e => setPlaceName(e.target.value)}
                 required
             />
 
             <label>TicketMaster ID:</label>
             <input
-                type="text"
+                type="hidden"
                 name="tmID"
-                value={formData.tmID}
+                value={tmID}
                 onChange={e => setTmID(e.target.value)}
                 required
             />
@@ -211,18 +213,11 @@ const AddEventForm = ({ addEvent }) => {
             <input
                 type="text"
                 name="genreClassifications"
-                value={formData.genreClassifications}
+                value="Comedy"
                 onChange={e => setGenreClassifications(e.target.value)}
                 required
                 hidden
             />
-
-
-
-
-
-            {/* Add more fields as needed */}
-
             <button type="submit">Add Event</button>
         </form>
     );
