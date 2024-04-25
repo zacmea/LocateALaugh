@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import Auth from './Auth'
 import EventIndexPage from './pages/EventIndexPage'
 import NewEvent from './pages/EventNewPage'
+import SearchBar from './components/searchbar/SearchBar';
 // import Calendar from './components/Calendar';
 // import UserDashboard from './pages/UserDashboardPage'
 

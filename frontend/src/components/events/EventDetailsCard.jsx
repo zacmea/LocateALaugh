@@ -14,12 +14,13 @@ const EventDetailsCard = (props) => {
         imageURL,
         attractionNames,
         placeName,
+        _id,
     } = props;
 // place-content-center
     //HTML return
     //note that the image might need some additional styling to make it display on the left side of the card
     return (
-        <Link to={'/events/${params.id}'}>
+        <Link to={'/events/{params._id}'}>
             <Card style={{ display: "flex", maxWidth: "75%", alignItems: "center" }} className="ml-auto mr-auto mb-8 p-5 w-screen h-100 bg-gray-800 rounded-lg shadow-md flex justify-center ">
                 <Card.Img className="mr-3 rounded-2xl flex justify-center "
                     variant="top"

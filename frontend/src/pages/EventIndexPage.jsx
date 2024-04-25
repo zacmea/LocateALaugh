@@ -19,6 +19,7 @@ function EventIndex() {
     // const [genreClassifications, setGenreClassifications] = useState("comedy");
     const [events, setEvents] = useState([]);
     const [editEventID, setEditEventID] = useState("");
+    const [selectedEvent, setSelectedEvent] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:3000/events')

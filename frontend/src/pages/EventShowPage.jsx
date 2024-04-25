@@ -4,24 +4,27 @@ import { useParams } from "react-router-dom";
 const EventShowPage = () => {
     //js code
     const params = useParams();
+    
     const {
         selectedEvent,
+        setSelectedEvent,
         name,
-        date,
-        startLocalTime,
-        imageURL,
-        attractionNames,
-        locationName,
+        url,
+        dateStartLocalTime,
+        description,
         address,
         city,
         state,
         zip,
-        description,
-        userUpcomingEvents,
-        comingSoonNearUser,
-        userMightLike,
-        lalUsersAttending,
+        attractionNames,
+        imageURL,
+        placeName,
+        tmID,
+        genreClassifications,
+        _id,
     } = props;
+
+
 
     //HTML return
     return (

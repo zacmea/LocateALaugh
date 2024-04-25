@@ -17,7 +17,9 @@ const EditEvent = ({ event, onUpdate, onCancel }) => {
     const [placeName, setPlaceName] = useState(event.placeName);
     const [events, setEvents] = useState([]);
     const [tmID, setTmID] = useState(event.tmID);
-    const [genreClassifications, setGenreClassifications] = useState("Comedy");
+    const [genreClassifications, setGenreClassifications] = useState
+    ("Comedy");
+    
     // const [editEventID, setEditEventID] = useState(null); // Tracks which event is being edited
     
     //handling which field is being edited:
@@ -56,7 +58,7 @@ const EditEvent = ({ event, onUpdate, onCancel }) => {
 
     //updating the event:
     const handleUpdate = () => {
-        const updatedEvent = { name, url, date, startLocalTime, description, address, city, state, zip, attractionNames, imageURL, placeName, tmID, genreClassifications };
+        const updatedEvent = { name, url, dateStartLocalTime, description, address, city, state, zip, attractionNames, imageURL, placeName, tmID, genreClassifications };
         fetch(`http://localhost:3000/events/${event._id}`, {
             method: 'PUT',
             headers: {
