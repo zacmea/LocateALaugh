@@ -10,6 +10,8 @@ import EventIndexPage from './pages/EventIndexPage'
 import NewEvent from './pages/EventNewPage'
 import SearchBar from './components/searchbar/SearchBar';
 // import Calendar from './components/Calendar';
+import Scheduler from './components/Calendar';
+import Profile from './components/Profile'
 // import UserDashboard from './pages/UserDashboardPage'
 
 function App() {
@@ -30,12 +32,13 @@ function App() {
                     {/* The path above has the edit and delete */}
                    <Route path="/events/list" element={<EventIndexPage/>} />
                     {/* <Route path="/events" element={<Calendar/>}/> */}
+                    <Route path="/user/find/id" element={<Scheduler/>}/>
                     {/* Aleena to complete incoporating the events to the calendar view */}
                     <Route path="/events/new" element={<NewEvent/>}/>
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}
                     {/* <Route path="/events/:id" element={<EventShowPage/>}/> */}
                     {/* <Route path="/artists/:id" element={<ArtistShowPage/>}/> */}
-                    {/* <Route path="/user/:id" element={<MyProfile/>}/> */}
+                    <Route path="/user/:id" element={<Profile/>}/>
                     {/*    */}
                     {/* The path above will have the edit and delete for the events */}
                     <Route path="/artists/create" element={<CreateArtist />} />
