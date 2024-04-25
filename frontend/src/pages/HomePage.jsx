@@ -14,7 +14,7 @@ function HomePage() {
                 My Artists List
             </Link>
             <hr />
-            <Link to="/events" className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded hover:from-blue-600 hover:to-purple-700 focus:outline-none">
+            <Link to="/events/list" className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded hover:from-blue-600 hover:to-purple-700 focus:outline-none">
 
                 My Events List
             </Link>
