@@ -6,7 +6,7 @@ import CreateArtist from './pages/CreateNewArtistPage';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Auth from './Auth'
-// import Calendar from './components/Calendar';
+import Scheduler from './components/Calendar';
 // import UserDashboard from './pages/UserDashboardPage'
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
                     {/* Aleena to look into the form submission for login and sign up */}
                     <Route path="/artists" element={<ArtistList />} />
                     {/* The path above has the edit and delete */}
-                    {/* <Route path="/events" element={<Calendar/>}/> */}
+                    <Route path="/user/find" element={<Scheduler/>}/>
                     {/* Aleena to complete incoporating the events to the calendar view */}
                     {/* <Route path="/events/new" element={<EventNewPage/>}/> */}
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}

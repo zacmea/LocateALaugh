@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     registered_events: [{ type: mongoose.Types.ObjectId, ref: 'events'}],
     artists_followed: [{ type: mongoose.Types.ObjectId, ref: 'artists'}]
-}, {
+}
+, {
     timestamps: true, 
     toJSON: {
         transform: function(doc, ret){
@@ -14,7 +15,8 @@ const userSchema = new mongoose.Schema({
             return ret
         }
     }
-})
+}
+)
 
 userSchema.pre('save', async function(next){
     if(!this.isModified('password')) return next()

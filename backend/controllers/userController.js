@@ -61,15 +61,15 @@ function ensureLoggedIn(req, res, next ){
 
 
 // fetch a user details
-async function getUserInfo(){
+router.get('/find', async(req,res) =>{
     try {
     const theUser = await User.find()
-    return theUser
+    res.json(theUser)
 } 
 catch (err){
     console.log(err)
 }}
-getUserInfo()
+)
 
 // delete a user
 router.delete("/:id", (req, res) => {
