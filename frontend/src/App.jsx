@@ -17,6 +17,10 @@ import EventShowPage from './pages/EventShowPage';
 import Scheduler from './components/Calendar';
 import Profile from './components/Profile'
 // import UserDashboard from './pages/UserDashboardPage'
+import Profile from './components/Profile'
+import ArtistShowPage from './pages/ArtistShowPage';
+import EventsCalendar from './pages/EventsCalendar';
+
 
 function App() {
     return (
@@ -33,10 +37,12 @@ function App() {
                     <Route path="/login" element={<Auth />} />
                     {/* Aleena to look into the form submission for login and sign up */}
                     <Route path="/artists" element={<ArtistList />} />
+                    <Route path="/calendar" element={<EventsCalendar />} />
                     {/* The path above has the edit and delete */}
                    <Route path="/events/list" element={<EventIndexPage/>} />
                     {/* <Route path="/events" element={<Calendar/>}/> */}
-                    <Route path="/user/find/id" element={<Scheduler/>}/>
+                    {/* <Route path="/user/find/id" element={<Scheduler/>}/> */}
+                    <Route path="/user/find/:id" element={<Scheduler/>}/>
                     {/* Aleena to complete incoporating the events to the calendar view */}
                     <Route path="/events/new" element={<NewEvent/>}/>
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}

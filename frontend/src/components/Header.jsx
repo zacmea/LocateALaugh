@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaUser } from 'react-icons/fa'
+import { useState, useEffect } from "react";
 
 const Header = () => {
     // To be replaced with tailwind css
@@ -11,6 +12,12 @@ const Header = () => {
         width: "90%",
         margin: "auto",
     }
+        const [id, setId] = useState([])
+        useEffect (() => {
+          setId(localStorage.getItem("id"))
+          
+        })
+
     return(
         <header>
             <h1>Locate A Laugh</h1>
@@ -18,8 +25,11 @@ const Header = () => {
                 <Link to="/home">
                     <div>HOME</div>
                 </Link>
-                <Link to="/user/find/id"> 
+                <Link to={`/user/find/${id}`}> 
                     <div>VIEW YOUR EVENTS</div>
+                </Link>
+                <Link to="/calendar">
+                    <div>CALENDAR</div>
                 </Link>
                 <Link to="/artists">
                     <div>VIEW OUR ARTISTS</div>
