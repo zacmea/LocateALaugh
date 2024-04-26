@@ -58,7 +58,7 @@ const EditEvent = ({ event, onUpdate, onCancel }) => {
 
     //updating the event:
     const handleUpdate = () => {
-        const updatedEvent = { name, url, dateStartLocalTime, description, address, city, state, zip, attractionNames, imageURL, placeName, tmID, genreClassifications };
+        const updatedEvent = { name, url, dateStartLocalTime, description, address, city, addressState, zip, attractionNames, imageURL, placeName, tmID, genreClassifications };
         fetch(`http://localhost:3000/events/${event._id}`, {
             method: 'PUT',
             headers: {
