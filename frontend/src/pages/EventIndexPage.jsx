@@ -47,6 +47,10 @@ function EventIndex() {
         .catch(error => console.error('Error deleting artist:', error));
     };
 
+    const handleClick = (event) => {
+        setSelectedEvent(event);
+    };
+
     const handleCancel = () => {
         setEditEventID(null); // Reset or cancel the edit state
     };
@@ -69,11 +73,13 @@ function EventIndex() {
                     ) : (
                         <div>
                             <EventDetailsCard 
+                                onclick={() => handleClick(event)}
                                 key={event._id}
                                 name={event.name}
                                 attractionNames={event.attractionNames.map(attraction => attraction.name)}
                                 date={event.date}
                                 startLocalTime={event.StartLocalTime}
+                                dateStartLocalTime={event.dateStartLocalTime}
                                 imageURL={event.imageURL}
                                 url={event.url}
                                 placeName={event.placeName}
