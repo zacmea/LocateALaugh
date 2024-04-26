@@ -18,9 +18,9 @@ export default function Auth(props){
                 body: JSON.stringify(formData)
             })
             const data = await response.json()
-            props.setUser(data.user)
+            // props.setUser(data.user)
             localStorage.setItem('token', data.token)
-            localStorage.setItem('id', _id)
+            localStorage.setItem('id', data.user._id)
         } catch (error) {
             console.error(error)
         }

@@ -14,7 +14,8 @@ const Header = () => {
     }
         const [id, setId] = useState([])
         useEffect (() => {
-            localStorage.getItem('id',_id)
+          setId(localStorage.getItem("id"))
+          
         })
 
     return(
