@@ -3,30 +3,34 @@ import { Link } from 'react-router-dom';
 import EditEvent from '../components/events/EditEvent';
 import EventDetailsCard from '../components/events/EventDetailsCard';
 import { useNavigate } from 'react-router-dom';
+import EventShowPage from './EventShowPage';
 
 function EventIndex() {
-    // const [name, setName] = useState("");
-    // const [url, setUrl] = useState("");
+    const [title, setTitle] = useState("");
+    const [url, setUrl] = useState("");
     // const [date, setDate] = useState("");
-    // const [startLocalTime, setStartLocalTime] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [address, setAddress] = useState("");
-    // const [city, setCity] = useState("");
-    // const [state, setState] = useState("");
-    // const [zip, setZip] = useState("");
-    // const [attractionNames, setAttractionNames] = useState([]);
-    // const [imageURL, setImageURL] = useState("");
-    // const [placeName, setPlaceName] = useState("");
-    // const [genreClassifications, setGenreClassifications] = useState("comedy");
+    const [dateStartLocalTime, setdateStartLocalTime] = useState("");
+    const [description, setDescription] = useState("");
+    const [address, setAddress] = useState("");
+    const [city, setCity] = useState("");
+    const [addressState, setAddressState] = useState("");
+    const [zip, setZip] = useState("");
+    const [attractionNames, setAttractionNames] = useState([]);
+    const [imageURL, setImageURL] = useState("");
+    const [placeName, setPlaceName] = useState("");
+    const [tmID, setTmID] = useState("");
+    const [genreClassifications, setGenreClassifications] = useState("comedy");
     const [events, setEvents] = useState([]);
     const [editEventID, setEditEventID] = useState("");
     const [selectedEvent, setSelectedEvent] = useState(null);
+    const [results, setResults] = useState([]);
+
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch('http://localhost:3000/events')
             .then(response => response.json())
-            .then(setEvents)
+            .then(setEvents)  //makes an array of events and their data
             .catch(error => console.error('Error fetching events:', error));
     }, []);
 
@@ -51,12 +55,37 @@ function EventIndex() {
 
     const handleClick = (event) => {
         setSelectedEvent(event);
-        navigate(`/events/${event._id}`);
-    };
+        console.log(event.url);
+        let title = event.title;
+        setTitle(event.title);
+        setUrl(event.url);
+        setdateStartLocalTime(event.dateStartLocalTime);
+        setDescription(event.description);
+        setAddress(event.address);
+        setCity(event.city);
+        setAddressState(event.addressState);
+        setZip(event.zip);
+        setAttractionNames(event.attractionNames);
+        setImageURL(event.imageURL);
+        setPlaceName(event.placeName);
+        setTmID(event.tmID);
+        setGenreClassifications(event.genreClassifications);
+        navigate(`/events/${event._id}`, {
+             name: {name}, 
+             url: {url}, 
+             dateStartLocalTime: {dateStartLocalTime},
+            })
+}
 
     const handleCancel = () => {
         setEditEventID(null); // Reset or cancel the edit state
     };
+
+    // let artistNames = () => {
+    //     events.map(eventEntry => (
+    //         eventEntry._embedded.attractions.map
+        
+    //     events.attractionNames.map((attraction) => attraction.name).join(", ");
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
@@ -78,8 +107,11 @@ function EventIndex() {
                             <EventDetailsCard 
                                 onclick={() => handleClick(event)}
                                 key={event._id}
-                                name={event.name}
-                                attractionNames={event.attractionNames.map(attraction => attraction.name)}
+                                title={event.title}
+                                attractionNames={event.attractionNames}
+                                addresss={event.address}
+                                city={event.city}
+                                addressState={event.addressState}
                                 date={event.date}
                                 startLocalTime={event.StartLocalTime}
                                 dateStartLocalTime={event.dateStartLocalTime}

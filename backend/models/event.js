@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-    name: String,
+    title: String,
     url: String,
     dateStartLocalTime: Date,
     // startLocalTime: Date,
     description: String,
     address: String,
     city: String,
-    state: String,
+    addressState: String,
     zip: String,
     attractionNames: [String],
     imageURL: String,

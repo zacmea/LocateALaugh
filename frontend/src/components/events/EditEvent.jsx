@@ -5,8 +5,8 @@ import EventIndex from '../../pages/EventIndexPage';
 const EditEvent = ({ event, onUpdate, onCancel }) => {
     const [name, setName] = useState(event.name);
     const [url, setUrl] = useState(event.url);
-    const [date, setDate] = useState(event.date);
-    const [startLocalTime, setStartLocalTime] = useState(event.startLocalTime);
+    // const [date, setDate] = useState(event.date);
+    const [dateStartLocalTime, setdateStartLocalTime] = useState(event.startLocalTime);
     const [description, setDescription] = useState(event.description);
     const [address, setAddress] = useState(event.address);
     const [city, setCity] = useState(event.city);

@@ -9,7 +9,7 @@ const NewEvent = () => {
     const navigate = useNavigate();
     const params = useParams();
 
-    const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
     const [url, setUrl] = useState("");
     const [dateStartLocalTime, setDateStartLocalTime] = useState("");
     // const [startLocalTime, setStartLocalTime] = useState("");
@@ -17,7 +17,7 @@ const NewEvent = () => {
     const [description, setDescription] = useState("");
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
-    const [state, setState] = useState("");
+    const [addressState, setAddressState] = useState("");
     const [zip, setZip] = useState("");
     const [attractionNames, setAttractionNames] = useState([]);
     const [imageURL, setImageURL] = useState("");
@@ -76,14 +76,14 @@ const NewEvent = () => {
         // Validate form data here maybe? (e.g., check required fields)
         // If validation passes, call addEvent with formData
         addEvent({
-            name,
+            title,
             url,
             dateStartLocalTime,
             // startLocalTime,
             description,
             address,
             city,
-            state,
+            addressState,
             zip,
             attractionNames,
             imageURL,
@@ -98,9 +98,9 @@ const NewEvent = () => {
             <label>Event Title:</label>
             <input className="text-black" 
             type="text" 
-            name="name" 
-            value={name} 
-            onChange={e => setName(e.target.value)} 
+            name="title" 
+            value={title} 
+            onChange={e => setTitle(e.target.value)} 
             required />
 
             <label>Event URL:</label>
@@ -158,9 +158,9 @@ const NewEvent = () => {
             <label>State:</label>
             <input className="text-black"
                 type="text"
-                name="state"
-                value={state}
-                onChange={e => setState(e.target.value)}
+                name="addressState"
+                value={addressState}
+                onChange={e => setAddressState(e.target.value)}
                 required
             />
 
