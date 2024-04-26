@@ -7,9 +7,10 @@ export default function Auth(props){
         username: '',
         password: ''
     })
+
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:3001/user/login', {
+            const response = await fetch('http://localhost:3000/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -19,6 +20,7 @@ export default function Auth(props){
             const data = await response.json()
             props.setUser(data.user)
             localStorage.setItem('token', data.token)
+            localStorage.setItem('id', _id)
         } catch (error) {
             console.error(error)
         }
@@ -26,7 +28,7 @@ export default function Auth(props){
 
     const handleSignUp = async () => {
         try {
-            const response = await fetch('http://localhost:3001/user/signup', {
+            const response = await fetch('http://localhost:3000/user/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,11 +38,11 @@ export default function Auth(props){
             const data = await response.json()
             props.setUser(data.newUser)
             localStorage.setItem('token', data.token)
+            localStorage.setItem('id', data.user._id)
         } catch (error) {
             console.error(error)
         }
     }
-
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }

@@ -26,7 +26,7 @@ function App() {
                     {/* Aleena to look into the form submission for login and sign up */}
                     <Route path="/artists" element={<ArtistList />} />
                     {/* The path above has the edit and delete */}
-                    <Route path="/user/find/id" element={<Scheduler/>}/>
+                    <Route path="/user/find/:id" element={<Scheduler/>}/>
                     {/* Aleena to complete incoporating the events to the calendar view */}
                     {/* <Route path="/events/new" element={<EventNewPage/>}/> */}
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}

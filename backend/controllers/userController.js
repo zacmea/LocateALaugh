@@ -8,7 +8,7 @@ const cors = require('cors')
 //CREATE ROUTE
 router.post('/signup', async (req, res) => {
     try {
-        const newUser = new db.User(req.body)
+        const newUser = new User(req.body)
         await newUser.save()
         const token = createToken(newUser)
         res.json({token, newUser})
@@ -89,22 +89,5 @@ router.put("/:id", async (req, res) => {
      );
    });
 
-
-
-
-// // 1) New User form
-// router.get('/new', (req, res) => {
-//     res.render('users/newUser', {currentUser: req.session.currentUser})
-// })
-// // 2) Post route to create user
-// router.post('/', async (req, res) => {
-//     // 1) hash the password
-//     console.log(req.body)
-//     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
-//     // 2) create the user
-//     const newUser = await User.create(req.body) // req.body has form data to create new user
-//     console.log(newUser)
-//     res.redirect('/')
-// })  
 
 module.exports = router
