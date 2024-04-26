@@ -4,6 +4,7 @@ import EditEvent from '../components/events/EditEvent';
 import EventDetailsCard from '../components/events/EventDetailsCard';
 import { useNavigate } from 'react-router-dom';
 import EventShowPage from './EventShowPage';
+import { Navigate } from 'react-router-dom';
 
 function EventIndex() {
     const [title, setTitle] = useState("");
@@ -55,8 +56,7 @@ function EventIndex() {
 
     const handleClick = (event) => {
         setSelectedEvent(event);
-        console.log(event.url);
-        let title = event.title;
+        // console.log(event);
         setTitle(event.title);
         setUrl(event.url);
         setdateStartLocalTime(event.dateStartLocalTime);
@@ -71,9 +71,9 @@ function EventIndex() {
         setTmID(event.tmID);
         setGenreClassifications(event.genreClassifications);
         navigate(`/events/${event._id}`, {
-             name: {name}, 
-             url: {url}, 
-             dateStartLocalTime: {dateStartLocalTime},
+            state: {
+             ...event
+            }
             })
 }
 
@@ -105,7 +105,7 @@ function EventIndex() {
                     ) : (
                         <div>
                             <EventDetailsCard 
-                                onclick={() => handleClick(event)}
+                                // onclick={() => handleClick(event)}
                                 key={event._id}
                                 title={event.title}
                                 attractionNames={event.attractionNames}
@@ -130,6 +130,8 @@ function EventIndex() {
                 Create New Event
             </Link>
         </div>
+    
+            
     );
 }
 

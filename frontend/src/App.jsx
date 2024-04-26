@@ -40,7 +40,7 @@ function App() {
                     {/* Aleena to complete incoporating the events to the calendar view */}
                     <Route path="/events/new" element={<NewEvent/>}/>
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}
-                    <Route path="/events/:id" element={<EventShowPage/>}/>
+                    <Route path="/events/:id" element={<EventShowPage />}/>
                     {/* <Route path="/artists/:id" element={<ArtistShowPage/>}/> */}
                     <Route path="/user/:id" element={<Profile/>}/>
                     <Route path="/artist/:id" element={<ArtistShowPage />} />

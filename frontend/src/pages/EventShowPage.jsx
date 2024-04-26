@@ -4,16 +4,21 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import EventDetailsCard from "../components/events/EventDetailsCard";
 import EventIndex from "./EventIndexPage";
+// import { useLocation } from "react-router-dom";
 
-const EventShowPage = (props) => {
+
+const EventShowPage = () => {
     //js code
     const params = useParams();
     const navigate = useNavigate();
-    // const state = useLocation();
+    const location = useLocation();
+    const {title, url, dateStartLocalTime, description, address, city, addressState, zip, attractionNames, imageURL, placeName, tmID, genreClassifications } = location.state || {}
+//Finish filling in fields here ^^
+
     // const { event } = state;
     // const [selectedEvent, setSelectedEvent] = useState();
     // const [event, setEvent] = useState({});
-    // const [title, setTitle] = useState("charlie");
+    // const [title, setTitle] = useState();
     // const [url, setUrl] = useState(event.url);
     // // const [date, setDate] = useState(event.date);
     // const [dateStartLocalTime, setdateStartLocalTime] = useState(event.startLocalTime);
@@ -48,27 +53,28 @@ const EventShowPage = (props) => {
     //     _id,
     // } = props;
  
-    useEffect(() => {
-        console.log(name.params)
-    }, []);
+    // useEffect(() => {
+    //     console.log(location)
+    // })
     
 
-
+let wordDate = new Date(dateStartLocalTime).toUTCString();
     //HTML return
     return (
         <>
             <h1> Event Details: </h1>
-            <h1>{name}</h1>
-            {/* <img src={imageURL} alt={name} /> */}
+            <h1>{title}</h1>
+            <img src={imageURL} alt={name} />
             <hr />
-            {/* <h2>{attractionNames} at {placeName}</h2> */}
-            {/* <h3>`Buy Tickets: ${TICKET-LINK-HERE}`</h3> */}
-            {/* <p>{address}, {city}, {state} {zip}</p>
-            <p>{dateStartLocalTime}</p>
+            <h2>{attractionNames} at {placeName}</h2>
+            <p>{address}, {city}, {addressState} {zip}</p>
+            <p>{wordDate}</p>
+            <hr />
+            <hr />
             <p>{description}</p>
             <br />
-            <br /> */}
-            <h4>Many Locate-a-Laugh users attending</h4>
+            <br />
+            <h3>Buy Tickets: {url}</h3>
         </>
     );
 };
