@@ -20,7 +20,7 @@ const db = require('./models/database');
 
 const artistController = require('./controllers/artistController')
 const eventController = require('./controllers/eventController')
-const userController = require('./controllers/userController')
+const {router: userController} = require('./controllers/userController')
 
 /* Create the Express app
 --------------------------------------------------------------- */
