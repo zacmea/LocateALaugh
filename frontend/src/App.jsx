@@ -11,6 +11,7 @@ import EventIndexPage from './pages/EventIndexPage'
 import NewEvent from './pages/EventNewPage'
 import SearchBar from './components/searchbar/SearchBar';
 import ArtistShowPage from './pages/ArtistShowPage';
+import EventShowPage from './pages/EventShowPage';
 
 // import Calendar from './components/Calendar';
 import Scheduler from './components/Calendar';
@@ -39,7 +40,7 @@ function App() {
                     {/* Aleena to complete incoporating the events to the calendar view */}
                     <Route path="/events/new" element={<NewEvent/>}/>
                     {/* <Route path="/events/search" element={<SearchBar/>}/> */}
-                    {/* <Route path="/events/:id" element={<EventShowPage/>}/> */}
+                    <Route path="/events/:id" element={<EventShowPage/>}/>
                     {/* <Route path="/artists/:id" element={<ArtistShowPage/>}/> */}
                     <Route path="/user/:id" element={<Profile/>}/>
                     <Route path="/artist/:id" element={<ArtistShowPage />} />

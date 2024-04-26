@@ -1,36 +1,44 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 const EventShowPage = () => {
     //js code
     const params = useParams();
-    
-    const {
-        selectedEvent,
-        setSelectedEvent,
-        name,
-        url,
-        dateStartLocalTime,
-        description,
-        address,
-        city,
-        state,
-        zip,
-        attractionNames,
-        imageURL,
-        placeName,
-        tmID,
-        genreClassifications,
-        _id,
-    } = props;
+    // const state = useLocation();
+    const [event, setEvent] = useState({result});
 
+    
+
+    // const {
+    //     selectedEvent,
+    //     setSelectedEvent,
+    //     name,
+    //     url,
+    //     dateStartLocalTime,
+    //     description,
+    //     address,
+    //     city,
+    //     state,
+    //     zip,
+    //     attractionNames,
+    //     imageURL,
+    //     placeName,
+    //     tmID,
+    //     genreClassifications,
+    //     _id,
+    // } = props;
+
+    
 
 
     //HTML return
     return (
         <>
             <nav />
-            <h1>{name}</h1>
+            <h1>{result.name}</h1>
             <img src={imageURL} alt={name} />
             <hr />
             <h2>`${attractionNames} at ${locationName}`</h2>
