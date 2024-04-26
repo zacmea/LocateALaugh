@@ -1,7 +1,11 @@
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 
 export default function Auth(props){
+
+    const navigate = useNavigate();
     const [showLogin, setShowLogin] = useState(true)
     const [formData, setFormData] = useState({
         username: '',
@@ -21,6 +25,7 @@ export default function Auth(props){
             // props.setUser(data.user)
             localStorage.setItem('token', data.token)
             localStorage.setItem('id', data.user._id)
+            navigate('/')
         } catch (error) {
             console.error(error)
         }
@@ -39,6 +44,7 @@ export default function Auth(props){
             props.setUser(data.newUser)
             localStorage.setItem('token', data.token)
             localStorage.setItem('id', data.user._id)
+            navigate('/')
         } catch (error) {
             console.error(error)
         }
