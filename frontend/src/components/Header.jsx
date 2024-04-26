@@ -28,6 +28,9 @@ const Header = () => {
                 <Link to={`/user/find/${id}`}> 
                     <div>VIEW YOUR EVENTS</div>
                 </Link>
+                <Link to="/calendar">
+                    <div>CALENDAR</div>
+                </Link>
                 <Link to="/artists">
                     <div>VIEW OUR ARTISTS</div>
                 </Link>
