@@ -1,4 +1,4 @@
-// Referenced the documentation for sequential fetch calls and promise all in https://stackoverflow.com/questions/73306325/react-nested-fetch-json
+// Referenced the documentation for sequential fetch calls and promise all in https://stackoverflow.com/questions/73306325/react-nested-fetch-json and debugged with chatGpt
 import React from "react";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
@@ -51,7 +51,7 @@ useEffect(() => {
       <h2>{user?.username}</h2>
       <br />
       <br />
-      <img src={process.env.PUBLIC_URL+'/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg'} alt={user?.username}/>
+      <img src={'/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg'} alt={user?.username}/>
       <br />
       <br />
       <h3>Artists followed</h3>
