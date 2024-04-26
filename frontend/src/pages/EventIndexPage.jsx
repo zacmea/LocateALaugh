@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import EditEvent from '../components/events/EditEvent';
 import EventDetailsCard from '../components/events/EventDetailsCard';
+import { useNavigate } from 'react-router-dom';
 
 function EventIndex() {
     // const [name, setName] = useState("");
@@ -20,6 +21,7 @@ function EventIndex() {
     const [events, setEvents] = useState([]);
     const [editEventID, setEditEventID] = useState("");
     const [selectedEvent, setSelectedEvent] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('http://localhost:3000/events')
@@ -49,6 +51,7 @@ function EventIndex() {
 
     const handleClick = (event) => {
         setSelectedEvent(event);
+        navigate(`/events/${event._id}`);
     };
 
     const handleCancel = () => {
@@ -84,6 +87,7 @@ function EventIndex() {
                                 url={event.url}
                                 placeName={event.placeName}
                             />
+                            <button onClick={() => handleClick(event)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Details</button>
                             <button onClick={() => setEditEventID(event._id)} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Edit</button>
                             <button onClick={() => handleDelete(event._id)} className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">Delete</button>
                         </div>
