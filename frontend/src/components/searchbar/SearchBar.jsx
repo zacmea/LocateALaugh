@@ -11,29 +11,37 @@ function SearchBar() {
     const handleSearch = async () => {
         setSearchPerformed(true);
         const apiKey = import.meta.env.VITE_TICKETMASTER_API_KEY;
-        // Use the `keyword` and `postalCode` only if provided, otherwise search all comedy artists
-        const queryParams = [];
-        if (eventQuery) queryParams.push(`keyword=${encodeURIComponent(eventQuery)}`);
-        if (zipCode) queryParams.push(`postalCode=${encodeURIComponent(zipCode)}`);
-        const url = `https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=${apiKey}&classificationName=comedy&size=20&${queryParams.join('&')}`;
+
+        // Determine if searching for events or artists based on input
+        const searchType = eventQuery.trim() ? "attractions" : "events"; 
+        const url = `https://app.ticketmaster.com/discovery/v2/${searchType}.json?apikey=${apiKey}&classificationName=comedy&size=20&keyword=${encodeURIComponent(eventQuery)}&postalCode=${encodeURIComponent(zipCode)}`;
 
         try {
             const response = await fetch(url);
             const data = await response.json();
-            if (data._embedded && data._embedded.attractions) {
-                setResults(data._embedded.attractions);
+            if (data._embedded && data._embedded[searchType]) {
+                const formattedResults = data._embedded[searchType].map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    imageUrl: item.images[0]?.url || '/default-image.png',
+                    location: item._embedded?.venues[0]?.name || 'TBA',
+                    date: item.dates?.start.localDate || 'Unknown date',
+                    url: item.url,
+                    artistId: item.attractions?.[0]?.id // Save the artist ID for events
+                }));
+                setResults(formattedResults);
             } else {
                 setResults([]);
             }
         } catch (error) {
-            console.error("Error fetching comedy attractions:", error);
+            console.error("Error fetching data:", error);
             setResults([]);
         }
     };
 
-    const handleResultClick = (artist) => {
-        // Assuming we want to navigate to an artist details page
-        navigate(`/artist/${artist.id}`, { state: { artist } });
+    const handleResultClick = (item) => {
+        // Navigate
+        navigate(`/artist/${item.id}`, { state: { artist: item } });
     };
 
     return (
@@ -44,7 +52,7 @@ function SearchBar() {
                     value={eventQuery}
                     onChange={(e) => setEventQuery(e.target.value)}
                     className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
-                    placeholder="Enter an artist name..."
+                    placeholder="Search by artist name or event..."
                 />
                 <input
                     type="text"
@@ -56,28 +64,29 @@ function SearchBar() {
                 <button
                     type="submit"
                     className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded hover:from-blue-600 hover:to-purple-700 focus:outline-none">
-                    Search Comedy Artists
+                    Search
                 </button>
             </form>
             <div className="mt-4 w-full flex flex-wrap justify-center">
                 {searchPerformed ? (
                     results.length > 0 ? (
-                        results.map(event => (
-                            <div key={event.id} onClick={() => handleResultClick(event)} className="m-2 p-3 w-full sm:w-96 bg-gray-800 rounded-lg shadow-md cursor-pointer">
-                                <h3 className="text-lg font-bold">{event.name}</h3>
-                                <p>Location: {event._embedded?.venues[0]?.name || 'TBA'}</p>
-                                <p>Date: {event.dates?.start.localDate || 'Unknown date'}</p>
+                        results.map(item => (
+                            <div key={item.id} onClick={() => handleResultClick(item)} className="m-2 p-3 w-full sm:w-96 bg-gray-800 rounded-lg shadow-md cursor-pointer">
+                                <h3 className="text-lg font-bold">{item.name}</h3>
+                                <img src={item.imageUrl} alt={item.name} className="max-w-xs my-2"/>
+                                <p>Location: {item.location}</p>
+                                <p>Date: {item.date}</p>
                             </div>
                         ))
                     ) : (
-                        <p className="text-center">No comedy artist found. Try another search.</p>
+                        <p className="text-center">No results found. Try another search.</p>
                     )
                 ) : (
-                    <p className="text-center">Enter an artist's name, ZIP code, or just search all comedy artist.</p>
+                    <p className="text-center">Enter an artist's name, ZIP code, or just search all comedy shows.</p>
                 )}
             </div>
         </div>
     );
 }
 
-export default SearchBar
+export default SearchBar;
