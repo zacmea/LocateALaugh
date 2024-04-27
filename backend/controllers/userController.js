@@ -85,7 +85,7 @@ router.put("/:id", async (req, res) => {
     await User.findByIdAndUpdate(req.params.id, req.body, {new: true})
      // console.log(req.params.id)
      .then((user) => res.redirect("/users/"+ req.params.id ) 
-    // what is the show page route?
+
      );
    });
 

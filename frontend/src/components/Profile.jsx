@@ -2,7 +2,9 @@
 //Referenced the documentation for sequential fetch calls and promise all in https://stackoverflow.com/questions/73306325/react-nested-fetch-json and debugged issues in the fetch calls to the events and artists schemas && the using params vs localstorage with chatGpt; debugged the handleeditstate and handleusernamechange with chatGPT; Used conditional the same as the header logic researched and debugged the input tag, editstate and handle with chatGpt
 import React from "react";
 import { useState, useEffect } from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useNavigate} from "react-router-dom";
+
+// const navigate = useNavigate()
 
 const Profile = () => {
 
@@ -10,7 +12,7 @@ const Profile = () => {
   const [userArtist, setUserArtist] = useState({})
   const [userEvent, setUserEvent] = useState({})
   const [editState, setEditState] = useState(false)
-
+ 
   const {id} = useParams();
 
 
@@ -73,6 +75,7 @@ const handleUpdate = async () => {
       body: JSON.stringify({username: user.username}),
   })
   setEditState(false)
+  // navigate('/home')
   }
   catch(error){
       console.error(error);
