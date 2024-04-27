@@ -18,7 +18,7 @@ const EditArtist = ({ artist, onUpdate, onCancel }) => {
 
     const handleUpdate = () => {
         const updatedArtist = { name, genre, description };
-        fetch(`http://localhost:3000/artists/${artist._id}`, {
+        fetch(`h/artists/${artist._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

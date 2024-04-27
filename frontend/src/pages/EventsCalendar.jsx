@@ -9,7 +9,7 @@ function EventsCalendar() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:3000/events')
+        fetch(`${import.meta.env.BASE_URL}/events`)
             .then(response => response.json())
             .then(data => {
                 const calendarEvents = data.map(event => ({
