@@ -53,4 +53,11 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
+// router.get('/:id', function (req, res) {
+//     const artistID = req.params.id
+//     Artists.findById({artistID})
+//     .then((artist) => res.json(artist))
+//     .catch((err) => res.status(500).json({ error: err.message }));
+// });
+
 module.exports = router
