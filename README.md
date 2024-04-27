@@ -52,7 +52,7 @@ Utilized the following views to navigate between the pages:
 2. 
 
 ### Unresolved Problems/Goals:
-1. Deploying the full scale execution of the authorization for all the routes
+1. Deploying the full scale execution of the authorization for all the routes.
 
 
 ### Unresolved Stretch Goals:
