@@ -11,7 +11,7 @@ router.post('/signup', async (req, res) => {
         const newUser = new User(req.body)
         await newUser.save()
         const token = createToken(newUser)
-        res.json({token, newUser})
+        res.json({token, user: newUser}) //Added the user: after debigging with chatGpt
     } catch (error) {
         res.status(400).json({ msg: error.message })
     }
@@ -90,4 +90,5 @@ router.put("/:id", async (req, res) => {
    });
 
 
-module.exports = {router, checkToken}
+// module.exports = {router, checkToken}
+module.exports = router

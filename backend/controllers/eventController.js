@@ -6,7 +6,7 @@ const router = express.Router();
 const Event = require('../models/event');
 const {checkToken} = require('./userController')
 
-router.use(checkToken)
+// router.use(checkToken)
 
 //Index Route - GET all /events
 router.get('/', function (req, res) {
