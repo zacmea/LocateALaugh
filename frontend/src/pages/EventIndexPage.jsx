@@ -30,14 +30,14 @@ function EventIndex() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchUserProfile = async () => {
+        // const fetchUserProfile = async () => {
             const token = localStorage.getItem('token');
             const userId = localStorage.getItem('id');
             console.log(userId);
-        }
-        fetchUserProfile();
+        // }
+        // fetchUserProfile();
 
-        fetch(`http://localhost:3000/events?createdBy=${userId}`)
+        fetch(`http://localhost:3000/events?id=${userId}`)
             .then(response => response.json())
             .then(setEvents)  //makes an array of events and their data
             .catch(error => console.error('Error fetching events:', error));
