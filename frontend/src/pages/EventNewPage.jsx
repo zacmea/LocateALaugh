@@ -1,6 +1,6 @@
 // import { name } from "ejs";
 // import e from "express";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 
@@ -25,6 +25,8 @@ const NewEvent = () => {
     // const [tmID, setTmID] = useState("");
     const [genreClassifications, setGenreClassifications] = useState("comedy");
     const [userGenerated, setUserGenerated] = useState(true);
+    const [createdBy, setCreatedBy] = useState("");
+    const [registered_events, setRegisteredEvents] = useState([]);
     // const [eventData, setEventData] = useState({
     //     name: "",
     //     date: "",
@@ -41,12 +43,22 @@ const NewEvent = () => {
     //     tmID: "",
     //     genreClassifications: [],
     // });
-
+    useEffect(() => {
+    const fetchUserProfile = async () => {
+            const token = localStorage.getItem('token');
+            const userId = localStorage.getItem('id');
+            // console.log(id);
+            setCreatedBy(userId);
+        }
+        fetchUserProfile();
+    }, []);
+    
     const addEvent = (eventData) => {
         fetch("http://localhost:3000/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(eventData),
         })
@@ -90,7 +102,8 @@ const NewEvent = () => {
             imageURL,
             placeName,
             genreClassifications,
-            userGenerated
+            userGenerated,
+            createdBy
         });
     };
 

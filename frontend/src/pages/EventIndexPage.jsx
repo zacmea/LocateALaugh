@@ -30,7 +30,14 @@ function EventIndex() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:3000/events')
+        const fetchUserProfile = async () => {
+            const token = localStorage.getItem('token');
+            const userId = localStorage.getItem('id');
+            console.log(userId);
+        }
+        fetchUserProfile();
+
+        fetch(`http://localhost:3000/events?createdBy=${userId}`)
             .then(response => response.json())
             .then(setEvents)  //makes an array of events and their data
             .catch(error => console.error('Error fetching events:', error));
@@ -49,10 +56,10 @@ function EventIndex() {
         fetch(`http://localhost:3000/events/${eventID}`, {
             method: 'DELETE'
         })
-        .then(() => {
-            setEvents(events => events.filter(event => event._id !== eventID));
-        })
-        .catch(error => console.error('Error deleting artist:', error));
+            .then(() => {
+                setEvents(events => events.filter(event => event._id !== eventID));
+            })
+            .catch(error => console.error('Error deleting artist:', error));
     };
 
     const handleClick = (event) => {
@@ -74,10 +81,10 @@ function EventIndex() {
         // setUserGenerated(true);
         navigate(`/events/${event._id}`, {
             state: {
-             ...event
+                ...event
             }
-            })
-}
+        })
+    }
 
     const handleCancel = () => {
         setEditEventID(null); // Reset or cancel the edit state
@@ -86,7 +93,7 @@ function EventIndex() {
     // let artistNames = () => {
     //     events.map(eventEntry => (
     //         eventEntry._embedded.attractions.map
-        
+
     //     events.attractionNames.map((attraction) => attraction.name).join(", ");
 
     return (
@@ -95,9 +102,9 @@ function EventIndex() {
             {events.map(event => (
                 <div key={event._id} className="text-blue mb-2 w-full max-w-4xl p-4 bg-gray-800 rounded-lg shadow">
                     {editEventID === event._id ? (
-                        <EditEvent 
+                        <EditEvent
                             event={event}
-                            onUpdate={handleUpdate} 
+                            onUpdate={handleUpdate}
                             onDelete={() => {
                                 handleDelete(event._id);
                                 setEditEventID(null); // Reset edit state on delete
@@ -106,7 +113,7 @@ function EventIndex() {
                         />
                     ) : (
                         <div>
-                            <EventDetailsCard 
+                            <EventDetailsCard
                                 // onclick={() => handleClick(event)}
                                 key={event._id}
                                 title={event.title}
@@ -132,8 +139,8 @@ function EventIndex() {
                 Create New Event
             </Link>
         </div>
-    
-            
+
+
     );
 }
 

@@ -17,7 +17,7 @@ const eventSchema = new mongoose.Schema({
     genreClassifications: String,
     userGenerated: Boolean,
     // lalUsersAttending: Number,
-    // createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
+    createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });
 
 const Events = mongoose.model('Event', eventSchema);
