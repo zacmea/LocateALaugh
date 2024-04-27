@@ -58,7 +58,7 @@ console.log(localStorage.getItem("name"))
 
     return(
     
-                <div className='flex justify-center items-center min-h-screen w-full bg-gradient-to-r from-blue-500 to-purple-500'>
+                <div className='flex justify-center items-center min-h-screen w-full bg-black'>
                  <div className="container mx-auto px-4 max-w-lg bg-black shadow-lg rounded-lg p-6">
                 <section>
                 <h2 className="text-4xl text-center font-bold my-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white py-2 px-4 rounded">

@@ -26,34 +26,32 @@ const handleLogout = () => {
 
 
     return(
-        <header className="bg-gradient-to-r from-blue-500 to-fuchsia-500 ">
-             <h1 className="inline-flex sm:justify-center sm:items-stretch text-4xl w-full font-bold bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white">Welcome to Locate a Laugh {userName? userName : "Guest"}!</h1> 
+        <header className="bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white p-3">
+        <div className="container mx-auto items-center justify-between">
+            <div className="text-center block md:flex-none">
+                <h1 className="block text-lg md:text-xl font-bold justify-center">{`Welcome to Locate a Laugh ${userName ? userName : "Guest"}`}</h1>
+            </div>
              {/* Added the "? userName: "Guest" after debuuging with chatGpt*/}
-            <nav className="inline-flex sm:justify-center sm:items-stretch space-x-10 text-2xl w-full font-bold my-6 bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white py-2 px-4">
-                <Link to="/home">
-                    <div>HOME</div>
-                </Link>
-                <Link to="/calendar">
-                    <div>YOUR EVENTS</div>
-                </Link>
-                <Link to="/artists">
-                    <div>YOUR ARTISTS</div>
-                </Link>
+             <nav className="flex-grow md:flex sm:flex md:justify-center md:items-center text-sm md:text-base">
+                    <Link to="/home" className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2">HOME</Link>
+                    <Link to="/calendar" className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2">YOUR EVENTS</Link>
+                    <Link to="/artists" className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2">YOUR ARTISTS</Link>
 {/* // Reference the doucmentaion in https://www.geeksforgeeks.org/how-to-log-out-user-from-app-using-reactjs/ and debugged the toggle with chatGPT */}
-                {userName? (
-                <>
-                <Link to={`/user/${id}`}>
-                <div>USER PROFILE</div>
-                </Link>
-                <button onClick={handleLogout}>LOGOUT</button>
-                </>
-                ): (
-                   <Link to='/login'>
-                    <div>LOGIN</div>
-                </Link>
-        
-                )}
-            </nav>
+{userName ? (
+                        <>
+                            <Link to={`/user/${id}`} className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2">USER PROFILE</Link>
+                            <button onClick={handleLogout} className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2 flex items-center">
+                                LOGOUT
+                            </button>
+                        </>
+                    ) : (
+                        <Link to="/login" className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2 flex items-center">
+                            <FaUser className="mr-1"/>
+                            LOGIN
+                        </Link>
+                    )}
+                </nav>
+            </div>
         </header>
     )
 }
