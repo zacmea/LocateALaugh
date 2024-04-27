@@ -187,7 +187,7 @@ const NewEvent = () => {
                 required
             />
 
-            <label>Attraction Names:</label>
+            <label>Artist Names:</label>
             <input className="text-black mb-2"
                 type="text"
                 name="attractionNames"
