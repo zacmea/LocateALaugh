@@ -15,8 +15,7 @@ import EventsCalendar from './pages/EventsCalendar';
 import LandingPage from './pages/LandingPage'
 import SearchBar from './components/searchbar/SearchBar';
 import EventNewPage from './pages/EventNewPage';
-import EventShowPage from './pages/EventShowPage';
-
+import Profile from './components/Profile'
 
 function App() {
     return (
@@ -32,14 +31,13 @@ function App() {
                     <Route path="/signup" element={<Auth />} />
                     <Route path="/artists" element={<ArtistList />} />
                     <Route path="/calendar" element={<EventsCalendar />} />
-                     <Route path="/events/new" element={<EventNewPage/>}/> 
-                     <Route path="/events/:id" element={<EventShowPage/>}/>
+                     <Route path="/events/new" element={<EventNewPage />}/> 
+                     <Route path="/events/:id" element={<EventShowPage />}/>
                     <Route path="/user/:id" element={<Profile/>}/>
                     <Route path="/artist/:id" element={<ArtistShowPage />} />
                     <Route path="/artists/create" element={<CreateArtist />} />
                     <Route path="/events/list" element={<EventIndexPage />} />
-                    <Route path="/events/new" element={<NewEvent />} />
-                    <Route path="/events/:id" element={<EventShowPage />} />
+                    <Route path="/search" element={<SearchBar />} />
         
                 </Routes>
             </div>

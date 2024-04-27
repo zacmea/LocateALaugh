@@ -13,7 +13,7 @@ function SearchBar() {
         const apiKey = import.meta.env.VITE_TICKETMASTER_API_KEY;
 
         // Determine if searching for events or artists based on input
-        const searchType = eventQuery.trim() ? "attractions" : "events";
+        const searchType = eventQuery.trim() ? "attractions" : "events"; 
         const url = `https://app.ticketmaster.com/discovery/v2/${searchType}.json?apikey=${apiKey}&classificationName=comedy&size=20&keyword=${encodeURIComponent(eventQuery)}&postalCode=${encodeURIComponent(zipCode)}`;
 
         try {
@@ -43,8 +43,6 @@ function SearchBar() {
         // Navigate
         navigate(`/artist/${item.id}`, { state: { artist: item } });
     };
-    const handleDetailsClick = (item) => {
-        navigate(`/events/${item.id}`, { state: { event: item } });
 
     return (
         <div className="flex flex-col items-center w-full">
@@ -90,5 +88,5 @@ function SearchBar() {
         </div>
     );
 }
-}
-export default SearchBar
+
+export default SearchBar;
