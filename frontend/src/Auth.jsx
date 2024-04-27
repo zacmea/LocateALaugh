@@ -25,12 +25,13 @@ export default function Auth(props){
             // props.setUser(data.user)
             localStorage.setItem('token', data.token)
             localStorage.setItem('id', data.user._id)
-            navigate('/')
+            localStorage.setItem('name', data.user.username)
+            navigate('/home')
         } catch (error) {
             console.error(error)
         }
     }
-console.log(localStorage.getItem("id"))
+console.log(localStorage.getItem("name"))
     const handleSignUp = async () => {
         try {
             const response = await fetch('http://localhost:3000/user/signup', {
@@ -44,7 +45,7 @@ console.log(localStorage.getItem("id"))
             props.setUser(data.newUser)
             localStorage.setItem('token', data.token)
             localStorage.setItem('id', data.user._id)
-            navigate('/')
+            navigate('/home')
         } catch (error) {
             console.error(error)
         }

@@ -75,7 +75,7 @@ function SearchBar() {
                                 <h3 className="text-lg font-bold">{item.name}</h3>
                                 <img src={item.imageUrl} alt={item.name} className="max-w-xs my-2"/>
                                 <p>Location: {item.location}</p>
-                                <p>Date: {item.date}</p>
+                                <p>Date: {item.dates}</p>
                             </div>
                         ))
                     ) : (
