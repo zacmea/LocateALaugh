@@ -30,7 +30,7 @@ export default function Auth(props){
             console.error(error)
         }
     }
-
+console.log(localStorage.getItem("id"))
     const handleSignUp = async () => {
         try {
             const response = await fetch('http://localhost:3000/user/signup', {
@@ -69,7 +69,7 @@ export default function Auth(props){
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  showLogin ? handleLogin() : handleSignUp();  //
+                  showLogin ? handleLogin() : handleSignUp();  
                 }}
                 className="flex flex-col items-center space-y-3"
               >
