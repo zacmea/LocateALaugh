@@ -62,7 +62,7 @@ function ensureLoggedIn(req, res, next ){
 
 
 // fetch a user details
-router.get('/find/:id', async(req,res) =>{
+router.get('/:id', checkToken, async(req,res) =>{
     try {
     const userID = req.params.id
     const theUser = await User.findById(userID)
