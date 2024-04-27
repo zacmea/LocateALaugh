@@ -18,7 +18,7 @@ const EditArtist = ({ artist, onUpdate, onCancel }) => {
 
     const handleUpdate = () => {
         const updatedArtist = { name, genre, description };
-        fetch(`${VITE_BASE_URL}/artists/${artist._id}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/artists/${artist._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

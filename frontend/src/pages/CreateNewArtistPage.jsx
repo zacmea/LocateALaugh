@@ -17,7 +17,7 @@ function CreateArtist() {
     };
 
     const addArtist = (artistData) => {
-        fetch(`${VITE_BASE_URL}/artists`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/artists`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

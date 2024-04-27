@@ -9,7 +9,7 @@ function EventsCalendar() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`${VITE_BASE_URL}/events`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/events`)
             .then(response => response.json())
             .then(data => {
                 const calendarEvents = data.map(event => ({

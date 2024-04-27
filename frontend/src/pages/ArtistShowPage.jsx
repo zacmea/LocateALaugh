@@ -13,7 +13,7 @@ function ArtistShowPage() {
         }
 
         // Determine the correct endpoint based on whether a date is included
-        const endpoint = artist.date ? `${VITE_BASE_URL}/events` : `${VITE_BASE_URL}/artists`;
+        const endpoint = artist.date ? `${import.meta.env.VITE_BASE_URL}/events` : `${import.meta.env.VITE_BASE_URL}/artists`;
         const postData = {
             name: artist.name,
             date: artist.date || undefined,

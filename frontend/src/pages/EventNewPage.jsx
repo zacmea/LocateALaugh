@@ -54,7 +54,7 @@ const NewEvent = () => {
     }, []);
     
     const addEvent = (eventData) => {
-        fetch(`${VITE_BASE_URL}/events`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/events`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

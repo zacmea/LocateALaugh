@@ -11,7 +11,7 @@ function Scheduler() {
 
 //FOR FETCHING DATA FROM BACKEND
     useEffect (() => {
-    fetch(`${VITE_BASE_URL}/user/find/${id}`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/user/find/${id}`)
     .then (response =>
        response.json())
        .then(data =>{
