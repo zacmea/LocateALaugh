@@ -1,21 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Auth from './Auth'
 import HomePage from './pages/HomePage';
-import ArtistList from './pages/ArtistIndexPage';
-import CreateArtist from './pages/CreateNewArtistPage';
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Auth from './Auth'
-
-import EventIndexPage from './pages/EventIndexPage'
-import NewEvent from './pages/EventNewPage'
-import ArtistShowPage from './pages/ArtistShowPage';
-import EventShowPage from './pages/EventShowPage';
-import EventsCalendar from './pages/EventsCalendar';
 import LandingPage from './pages/LandingPage'
 import SearchBar from './components/searchbar/SearchBar';
+
+import ArtistList from './pages/ArtistIndexPage';
+import CreateArtist from './pages/CreateNewArtistPage';
+import ArtistShowPage from './pages/ArtistShowPage';
+
+import EventIndexPage from './pages/EventIndexPage'
 import EventShowPage from './pages/EventShowPage';
+import EventsCalendar from './pages/EventsCalendar';
 import EventNewPage from './pages/EventNewPage';
+
 import Profile from './components/Profile'
 // import EventNewPage from './pages/EventNewPage';
 // import EventShowPage from './pages/EventShowPage';
