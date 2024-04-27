@@ -3,7 +3,7 @@ const router = express.Router();
 const Artists = require('../models/artist');
 const {checkToken} = require('./userController')
 
-router.use(checkToken)
+// router.use(checkToken)
 
 // INDEX PAGE - Get all artists
 router.get('/', function (req, res) {
