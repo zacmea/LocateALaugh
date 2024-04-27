@@ -15,6 +15,7 @@ const eventSchema = new mongoose.Schema({
     placeName: String,
     tmID: String,  //TicketMaster ID
     genreClassifications: String,
+    userGenerated: Boolean,
     // lalUsersAttending: Number,
     // createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });

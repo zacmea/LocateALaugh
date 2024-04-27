@@ -22,8 +22,9 @@ const NewEvent = () => {
     const [attractionNames, setAttractionNames] = useState([]);
     const [imageURL, setImageURL] = useState("");
     const [placeName, setPlaceName] = useState("");
-    const [tmID, setTmID] = useState("");
+    // const [tmID, setTmID] = useState("");
     const [genreClassifications, setGenreClassifications] = useState("comedy");
+    const [userGenerated, setUserGenerated] = useState(true);
     // const [eventData, setEventData] = useState({
     //     name: "",
     //     date: "",
@@ -88,8 +89,8 @@ const NewEvent = () => {
             attractionNames,
             imageURL,
             placeName,
-            tmID,
-            genreClassifications
+            genreClassifications,
+            userGenerated
         });
     };
 
