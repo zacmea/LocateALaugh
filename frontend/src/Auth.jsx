@@ -42,17 +42,20 @@ console.log(localStorage.getItem("name"))
                 body: JSON.stringify(formData)
             })
             const data = await response.json()
-            props.setUser(data.newUser)
+            // props.setUser(data.newUser)
             localStorage.setItem('token', data.token)
-            localStorage.setItem('id', data.user._id)
+            localStorage.setItem('id', data.user?._id)
+            localStorage.setItem('name', data.user?.username)
             navigate('/home')
         } catch (error) {
             console.error(error)
         }
     }
+
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
+
     return(
     
                 <div className='flex justify-center items-center min-h-screen w-full bg-gradient-to-r from-blue-500 to-purple-500'>
@@ -97,6 +100,7 @@ console.log(localStorage.getItem("name"))
                   {showLogin ? "Log Me In" : "Create New Account"}
                 </button>
               </form>
+
              </section>   
              </div>
              </div>

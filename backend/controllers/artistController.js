@@ -3,7 +3,7 @@ const router = express.Router();
 const Artists = require('../models/artist');
 const {checkToken} = require('./userController')
 
-router.use(checkToken)
+// router.use(checkToken)
 
 // INDEX PAGE - Get all artists
 router.get('/', function (req, res) {
@@ -52,5 +52,12 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json({ error: 'Failed to delete artist.' });
     }
 });
+
+// router.get('/:id', function (req, res) {
+//     const artistID = req.params.id
+//     Artists.findById({artistID})
+//     .then((artist) => res.json(artist))
+//     .catch((err) => res.status(500).json({ error: err.message }));
+// });
 
 module.exports = router
