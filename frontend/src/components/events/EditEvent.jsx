@@ -53,7 +53,7 @@ const EditEvent = ({ event, onUpdate, onCancel }) => {
     //updating the event:
     const handleUpdate = () => {
         const updatedEvent = { title, url, dateStartLocalTime, description, address, city, addressState, zip, attractionNames, imageURL, placeName };
-        fetch(`${import.meta.env.BASE_URL}/events/${event._id}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/events/${event._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

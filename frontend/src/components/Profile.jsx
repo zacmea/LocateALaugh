@@ -23,7 +23,7 @@ const fetchUserProfile = async () => {
 console.log(localStorage.getItem('token'))
 console.log(localStorage.getItem('id'))
 
-  const fetchUser = await fetch(`http://localhost:3000/user/${id}`, {
+  const fetchUser = await fetch(`${VITE_BASE_URL}/user/${id}`, {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   });
@@ -31,11 +31,11 @@ console.log(localStorage.getItem('id'))
   setUser(userDetails)
     
 const [getEvents, getArtists] = await Promise.all([
-  fetch(`http://localhost:3000/events/${userDetails.registered_events}`, {
+  fetch(`${VITE_BASE_URL}/events/${userDetails.registered_events}`, {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   }),
-  fetch (`http://localhost:3000/artists/${userDetails.artists_followed}` , {
+  fetch (`${VITE_BASE_URL}/artists/${userDetails.artists_followed}` , {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   }),
@@ -64,7 +64,7 @@ const handleUsernameChange = (e) => {
 
 const handleUpdate = async () => {
   try {
-      await fetch(`http://localhost:3000/user/${id}`, {
+      await fetch(`${VITE_BASE_URL}/user/${id}`, {
       method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
