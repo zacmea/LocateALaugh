@@ -54,7 +54,7 @@ const NewEvent = () => {
     }, []);
     
     const addEvent = (eventData) => {
-        fetch("http://localhost:3000/events", {
+        fetch(`${import.meta.env.BASE_URL}/events`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
