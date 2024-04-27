@@ -51,8 +51,8 @@ function SearchBar() {
                     type="text"
                     value={eventQuery}
                     onChange={(e) => setEventQuery(e.target.value)}
-                    className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
-                    placeholder="Search by artist name or event..."
+                    className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none "
+                    placeholder="Search by Name or event"
                 />
                 <input
                     type="text"
