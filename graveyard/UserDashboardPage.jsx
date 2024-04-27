@@ -1,7 +1,11 @@
 import React from 'react';
+<<<<<<< HEAD:frontend/src/pages/UserDashboardPage.jsx
 import Carousel_UserRegisteredEvents from '../components/events/Carousel_UserRegisteredEvents';
+=======
+import Carousel_UserUpcomingEvents from '../frontend/src/components/events/Carousel_UserUpcomingEvents';
+>>>>>>> origin/aleena3:graveyard/UserDashboardPage.jsx
 // import Carousel_ComingSoonNearUser from '../components/events/Carousel_ComingSoonNearUser';
-import Carousel_UserMightLike from '../components/events/Carousel_UserMightLike';
+import Carousel_UserMightLike from '../frontend/src/components/events/Carousel_UserMightLike';
 // import upcomingEvents from SOMEWHERE;
 // import comingSoonNearUser from SOMEWHERE;
 // import userMightLike from SOMEWHERE;

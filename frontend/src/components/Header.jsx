@@ -3,39 +3,29 @@ import { FaUser } from 'react-icons/fa'
 import { useState, useEffect } from "react";
 
 const Header = () => {
-    // To be replaced with tailwind css
-    const navStyle = { 
-        display: "flex",
-        justifyContent: "space-around",
-        broder: "3px solid black",
-        padding: "8px",
-        width: "90%",
-        margin: "auto",
-    }
         const [id, setId] = useState([])
+        const [userName, setUserName] = useState([])
+
         useEffect (() => {
           setId(localStorage.getItem("id"))
-          
-        })
-
+          setUserName(localStorage.getItem("name"))
+        }, [])
+console.log(localStorage.getItem("name"))
     return(
-        <header>
-            <h1>Locate A Laugh</h1>
-            <nav style = {navStyle}>
+        <header className="bg-gradient-to-r from-blue-500 to-fuchsia-500 ">
+             <h1 className="inline-flex sm:justify-center sm:items-stretch text-4xl w-full font-bold bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white">Welcome to Locate a Laugh {userName}!</h1>
+            <nav className="inline-flex sm:justify-center sm:items-stretch space-x-10 text-2xl w-full font-bold my-6 bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white py-2 px-4">
                 <Link to="/home">
                     <div>HOME</div>
                 </Link>
-                <Link to={`/user/find/${id}`}> 
-                    <div>VIEW YOUR EVENTS</div>
-                </Link>
                 <Link to="/calendar">
-                    <div>CALENDAR</div>
+                    <div>YOUR EVENTS</div>
                 </Link>
                 <Link to="/artists">
-                    <div>VIEW OUR ARTISTS</div>
+                    <div>YOUR ARTISTS</div>
                 </Link>
                 <Link to="/login">
-                    <FaUser id="user-icon"/>
+                    {/* <FaUser id="user-icon" alt-text="User"/> */}
                     <div>USER</div>
                 </Link>
             </nav>
