@@ -205,7 +205,7 @@ const NewEvent = () => {
             <input className="text-black"
                 type="text"
                 name="tmID"
-                value={null}
+                value=""
                 onChange={e => setTmID(e.target.value)}
                 required
             />

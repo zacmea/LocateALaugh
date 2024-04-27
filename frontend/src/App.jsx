@@ -28,7 +28,7 @@ function App() {
            </header>
             <div className="flex justify-center bg-black text-white min-h-screen p-4 flex-col items-center">
                 <Routes>
-                    <Route path="/" element={<HomePage />} /> 
+                    <Route path="/home" element={<HomePage />} /> 
                     {/* Change the element to the About page (+ Nav bar a link to the log in & add the logout when the user is logged in) */}
                     {/* <Route path="/home" element={<UserDashboard/>} /> */}
                     {/* Zach to look into the userdashboard */}
