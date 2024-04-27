@@ -5,6 +5,7 @@ const artistSchema = new mongoose.Schema({
   description: String,
   webpage: String,
   followers: [String],
+  imageUrl: String,
   created_by: {type: mongoose.Types.ObjectId, ref:"user"}
 })
 
