@@ -1,5 +1,5 @@
 //References:
-//Referenced the documentation for sequential fetch calls and promise all in https://stackoverflow.com/questions/73306325/react-nested-fetch-json and debugged issues in the fetch calls to the events and artists schemas && the using params vs localstorage with chatGpt; debugged the handleeditstate and handleusernamechange with chatGPT; Used conditional the same as the header logic researched and debugged the input tag, editstate and handle with chatGpt
+//Referenced the documentation for sequential fetch calls and promise all in https://stackoverflow.com/questions/73306325/react-nested-fetch-json and debugged issues in the fetch calls to the events and artists schemas && the using params vs localstorage with chatGpt; debugged the handleeditstate and handleusernamechange with chatGPT; Used conditional the same as the header logic researched and debugged the input tag, editstate and handle with chatGpt; debugged some styling of the CSS 
 import React from "react";
 import { useState, useEffect } from "react";
 import {Link, useParams} from "react-router-dom";
@@ -23,7 +23,7 @@ const fetchUserProfile = async () => {
 console.log(localStorage.getItem('token'))
 console.log(localStorage.getItem('id'))
 
-  const fetchUser = await fetch(`http://localhost:3000/user/${id}`, {
+  const fetchUser = await fetch(`${import.meta.env.VITE_BASE_URL}user/${id}`, {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   });
@@ -31,11 +31,11 @@ console.log(localStorage.getItem('id'))
   setUser(userDetails)
     
 const [getEvents, getArtists] = await Promise.all([
-  fetch(`http://localhost:3000/events/${userDetails.registered_events}`, {
+  fetch(`${import.meta.env.VITE_BASE_URL}events/${userDetails.registered_events}`, {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   }),
-  fetch (`http://localhost:3000/artists/${userDetails.artists_followed}` , {
+  fetch (`${import.meta.env.VITE_BASE_URL}artists/${userDetails.artists_followed}` , {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   }),
@@ -64,7 +64,7 @@ const handleUsernameChange = (e) => {
 
 const handleUpdate = async () => {
   try {
-      await fetch(`http://localhost:3000/user/${id}`, {
+      await fetch(`${import.meta.env.VITE_BASE_URL}user/${id}`, {
       method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -102,7 +102,7 @@ const handleUpdate = async () => {
       }
 <br />
       <br />
-      <img className="sm:size-20 rounded-full border-4" src={'/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg'} alt={user?.username}/>
+      <img className="md:w-20 md:h-20 rounded-md border-4" src={'/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg'} alt={user?.username}/>
       <br />
       <br />
       <h3>Artists followed</h3>

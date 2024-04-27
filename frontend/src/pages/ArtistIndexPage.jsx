@@ -7,7 +7,7 @@ function ArtistList() {
     const [editArtistId, setEditArtistId] = useState(null); // Tracks which artist is being edited
 
     useEffect(() => {
-        fetch('http://localhost:3000/artists')
+        fetch(`${import.meta.env.VITE_BASE_URL}artists`)
             .then(response => response.json())
             .then(setArtists)
             .catch(error => console.error('Error fetching artists:', error));
@@ -15,7 +15,7 @@ function ArtistList() {
 
     const handleUpdate = () => {
         // Refresh the list after an update
-        fetch('http://localhost:3000/artists')
+        fetch(`${import.meta.env.VITE_BASE_URL}artists`)
             .then(response => response.json())
             .then(setArtists)
             .catch(error => console.error('Error fetching artists after update:', error));
@@ -23,7 +23,7 @@ function ArtistList() {
     };
 
     const handleDelete = (artistId) => {
-        fetch(`http://localhost:3000/artists/${artistId}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}artists/${artistId}`, {
             method: 'DELETE'
         })
         .then(() => {

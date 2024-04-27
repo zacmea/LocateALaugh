@@ -37,7 +37,7 @@ function EventIndex() {
         // }
         // fetchUserProfile();
 
-        fetch(`http://localhost:3000/events?id=${userId}`)
+        fetch(`${import.meta.env.VITE_BASE_URL}events?id=${userId}`)
             .then(response => response.json())
             .then(setEvents)  //makes an array of events and their data
             .catch(error => console.error('Error fetching events:', error));
@@ -45,7 +45,7 @@ function EventIndex() {
 
     const handleUpdate = () => {
         // Refresh the list after an update
-        fetch('http://localhost:3000/events')
+        fetch(`${import.meta.env.VITE_BASE_URL}events`)
             .then(response => response.json())
             .then(setEvents)
             .catch(error => console.error('Error fetching events after update:', error));
@@ -53,7 +53,7 @@ function EventIndex() {
     };
 
     const handleDelete = (eventID) => {
-        fetch(`http://localhost:3000/events/${eventID}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}events/${eventID}`, {
             method: 'DELETE'
         })
             .then(() => {

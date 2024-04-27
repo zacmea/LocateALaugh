@@ -14,7 +14,7 @@ export default function Auth(props){
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:3000/user/login', {
+            const response = await fetch(`${import.meta.env.VITE_BASE_URL}user/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export default function Auth(props){
 console.log(localStorage.getItem("name"))
     const handleSignUp = async () => {
         try {
-            const response = await fetch('http://localhost:3000/user/signup', {
+            const response = await fetch(`${import.meta.env.VITE_BASE_URL}user/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
