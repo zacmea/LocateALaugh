@@ -95,9 +95,9 @@ const NewEvent = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className=" grid w-2/3" onSubmit={handleSubmit}>
             <label>Event Title:</label>
-            <input className="text-black" 
+            <input className="text-black mb-2" 
             type="text" 
             name="title" 
             value={title} 
@@ -105,7 +105,7 @@ const NewEvent = () => {
             required />
 
             <label>Event URL:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="url"
                 name="url"
                 value={url}
@@ -114,7 +114,7 @@ const NewEvent = () => {
             />
 
             <label>Date & Start Time:</label>
-            <input  className="text-black"
+            <input  className="text-black mb-2"
             type="datetime-local" 
             name="date" 
             value={dateStartLocalTime} 
@@ -131,7 +131,7 @@ const NewEvent = () => {
             /> */}
 
             <label>Description:</label>
-            <textarea className="text-black"
+            <textarea className="text-black mb-2"
                 name="description"
                 value={description}
                 onChange={e => setDescription(e.target.value)}
@@ -139,7 +139,7 @@ const NewEvent = () => {
             />
 
             <label>Address:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="text"
                 name="address"
                 value={address}
@@ -148,7 +148,7 @@ const NewEvent = () => {
             />
 
             <label>City:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="text"
                 name="city"
                 value={city}
@@ -157,7 +157,7 @@ const NewEvent = () => {
             />
 
             <label>State:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="text"
                 name="addressState"
                 value={addressState}
@@ -166,7 +166,7 @@ const NewEvent = () => {
             />
 
             <label>Zip:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="text"
                 name="zip"
                 value={zip}
@@ -175,7 +175,7 @@ const NewEvent = () => {
             />
 
             <label>Attraction Names:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="text"
                 name="attractionNames"
                 value={[attractionNames]}
@@ -184,7 +184,7 @@ const NewEvent = () => {
             />
 
             <label>Image URL:</label>
-            <input className="text-black"
+            <input className="text-black mb-2"
                 type="url"
                 name="imageURL"
                 value={imageURL}
@@ -193,7 +193,7 @@ const NewEvent = () => {
             />
 
             <label>Venue Name:</label>
-            <input   className="text-black"
+            <input   className="text-black mb-2"
                 type="text"
                 name="placeName"
                 value={placeName}
@@ -203,7 +203,7 @@ const NewEvent = () => {
 
             {/* <label>TicketMaster ID:</label> */}
             <input className="text-black"
-                type="text"
+                type="hidden"
                 name="tmID"
                 value=""
                 onChange={e => setTmID(e.target.value)}
@@ -212,14 +212,14 @@ const NewEvent = () => {
 
             {/* <label>Genre Classifications:</label> */}
             <input className="text-black"
-                type="text"
+                type="hidden"
                 name="genreClassifications"
                 value="Comedy"
                 onChange={e => setGenreClassifications(e.target.value)}
                 required
                 hidden
             />
-            <button type="submit">Add Event</button>
+            <button className="bg-blue-400 mt-2 rounded-xl " type="submit">Add Event</button>
         </form>
     );
 };

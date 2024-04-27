@@ -71,7 +71,7 @@ function EventIndex() {
         setPlaceName(event.placeName);
         setTmID(event.tmID);
         setGenreClassifications(event.genreClassifications);
-        setUserGenerated(event.userGenerated);
+        // setUserGenerated(true);
         navigate(`/events/${event._id}`, {
             state: {
              ...event

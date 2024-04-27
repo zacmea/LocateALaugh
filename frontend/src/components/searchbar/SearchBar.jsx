@@ -7,6 +7,7 @@ function SearchBar() {
     const [results, setResults] = useState([]);
     const [searchPerformed, setSearchPerformed] = useState(false);
     const navigate = useNavigate();
+    const [id, setId] = useState(null);
 
     const handleSearch = async () => {
         setSearchPerformed(true);
@@ -44,6 +45,12 @@ function SearchBar() {
         navigate(`/artist/${item.id}`, { state: { artist: item } });
     };
 
+    const handleDetailsClick = (cosa) => {
+        setId(cosa.id);
+        // Navigate
+        navigate(`/events/${cosa.id}`, { state: { id: id } });
+    };
+
     return (
         <div className="flex flex-col items-center w-full">
             <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2 p-4">
@@ -71,12 +78,15 @@ function SearchBar() {
                 {searchPerformed ? (
                     results.length > 0 ? (
                         results.map(item => (
+                            <>
                             <div key={item.id} onClick={() => handleResultClick(item)} className="m-2 p-3 w-full sm:w-96 bg-gray-800 rounded-lg shadow-md cursor-pointer">
                                 <h3 className="text-lg font-bold">{item.name}</h3>
                                 <img src={item.imageUrl} alt={item.name} className="max-w-xs my-2"/>
                                 <p>Location: {item.location}</p>
                                 <p>Date: {item.dates}</p>
                             </div>
+                                <button onClick={() => handleDetailsClick(item)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Details</button>
+                            </>
                         ))
                     ) : (
                         <p className="text-center">No results found. Try another search.</p>
