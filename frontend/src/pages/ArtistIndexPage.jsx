@@ -53,9 +53,8 @@ function ArtistList() {
                         />
                     ) : (
                         <div>
-                            <p>Name: {artist.name}</p>
-                            <p>Genre: {artist.genre}</p>
-                            <p>Description: {artist.description}</p>
+                            <p>{artist.name}</p>
+                            <img src={artist.imageUrl} alt={artist.name} className="max-w-xs my-2"/>
                             <button onClick={() => setEditArtistId(artist._id)} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Edit</button>
                             <button onClick={() => handleDelete(artist._id)} className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">Delete</button>
                         </div>

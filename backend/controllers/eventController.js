@@ -3,15 +3,17 @@
 // Require necessary modules
 const express = require('express');
 const router = express.Router();
-const Event = require('../models/event');
+const Events = require('../models/event');
 const {checkToken} = require('./userController')
 
+
 // router.use(checkToken)
+
 
 //Index Route - GET all /events
 router.get('/', function (req, res) {
     try {
-    Event.find({})
+    Events.find({})
         .then(events => {
             res.json(events);
         });
@@ -21,11 +23,14 @@ router.get('/', function (req, res) {
     }
 })
 
+
+
 //New Route - handled in front end
+
 
 //Delete Route - DELETE /events/:id
 router.delete('/:id', function (req, res) {
-    Event.findByIdAndDelete(req.params.id)
+    Events.findByIdAndDelete(req.params.id)
         .then(() => res.send("Event deleted successfully"))
         .catch(err => res.send("Error deleting event"));
 })
@@ -33,7 +38,7 @@ router.delete('/:id', function (req, res) {
 //Update Route - PUT /events/:id
 router.put('/:id', async (req, res) => {
     const updatedEvent = {...req.body};
-    await Event.findByIdAndUpdate(req.params.id, updatedEvent, {new: true})
+    await Events.findByIdAndUpdate(req.params.id, updatedEvent, {new: true})
     .then((event) => {
         res.json(event);
     })
@@ -45,15 +50,23 @@ router.put('/:id', async (req, res) => {
 //Create Route - POST /events
 router.post('/', async (req, res) => {
     try {
-        const newEvent = await Event.create(req.body);
-        res.json(newEvent);
+        const newEventInfo = {...req.body};
+        const newEvent = await Events.create(newEventInfo);
+        res.json({newEvent});
     }
     catch (err) {
         res.status(400).send("Error creating event");
     }
 })
 
+
 //Edit Route - handled in front end
 
-//Show route - handled in front end
+//Show route - 
+// router.get('/:id', function (req, res) {
+//     Events.findById(req.params.id)
+//         .then(selectedEvent => res.json(selectedEvent))
+//         .catch(err => res.send("Error finding event"));
+//         console.log(selectedEvent);
+// })
 module.exports = router;

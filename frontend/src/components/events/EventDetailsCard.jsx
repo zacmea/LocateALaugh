@@ -1,44 +1,55 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SearchBar from "../searchbar/SearchBar";
 
 const EventDetailsCard = (props) => {
     //Code
     const params = useParams();
     const {
         selectedEvent,
-        name,
-        date,
-        startLocalTime,
+        url,
+        title,
+        dateStartLocalTime,
+        // startLocalTime,
         imageURL,
         attractionNames,
-        locationName,
-        userUpcomingEvents,
-        comingSoonNearUser,
-        userMightLike,
+        placeName,
+        _id,
     } = props;
+    const navigate = useNavigate();
 
+    const handleClick = (event) => {
+        setSelectedEvent(event);
+        navigate(`/events/${event._id}`);
+    };
+
+    // let artistNames = attractionNames.map((attraction) => attraction.name).join(", ");
+    let wordDate = new Date(dateStartLocalTime).toUTCString();
+// place-content-center
     //HTML return
     //note that the image might need some additional styling to make it display on the left side of the card
     return (
-        <Link to={`/event/${params.id}`}>
-            <Card style={{ display: "flex", alignItems: "center" }}>
-                <Card.Img
+            <Card style={{ display: "flex", maxWidth: "75%", alignItems: "center" }} className="ml-auto mr-auto mb-8 p-5 w-screen h-100 bg-gray-800 rounded-lg shadow-md flex justify-center ">
+                <Card.Img className="mr-3 rounded-2xl flex justify-center "
                     variant="top"
                     src={imageURL}
                     style={{ width: "100px", height: "100px", objectFit: "cover" }}
                 />
-                <Card.Body>
-                    <Card.Title>{attractionNames}</Card.Title>
-                    <Card.Subtitle>{name}</Card.Subtitle>
-                    <Card.Text>
-                        <p>{date}</p>
-                        <p>{startLocalTime}</p>
-                        <p>{placeName}</p>
+                <Card.Body >
+                    <Card.Title className="text-lg font-bold  w-full">{attractionNames}</Card.Title>
+                    <Card.Subtitle>{title}</Card.Subtitle>
+                    <Card.Text className="">{wordDate} </Card.Text>
+                        <hr />
+                        {/* or */
+                        /* <p className="">{localDate}</p> */
+                        /* <p className="flex justify-center">{startLocalTime}</p> */}
+                        <Card.Text className="italic text-wrap max-w-64">Venue: &ensp;{placeName}
                     </Card.Text>
                 </Card.Body>
             </Card>
-        </Link>
+        // </Link>
     );
 };
 

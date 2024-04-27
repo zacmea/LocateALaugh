@@ -1,23 +1,24 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-    name: String,
-    date: Date,
-    startLocalTime: Number,
-    endLocalTime: Number,
+    title: String,
+    url: String,
+    dateStartLocalTime: Date,
+    // startLocalTime: Date,
     description: String,
     address: String,
     city: String,
-    state: String,
+    addressState: String,
     zip: String,
     attractionNames: [String],
     imageURL: String,
     placeName: String,
     tmID: String,  //TicketMaster ID
-    genreClassifications: [String],
-    lalUsersAttending: Number,
+    genreClassifications: String,
+    userGenerated: Boolean,
+    // lalUsersAttending: Number,
     createdBy: [{ type: mongoose.Types.ObjectId, ref: 'user'}],
 });
 
-const Event = mongoose.model('Event', eventSchema);
-module.exports = Event;
+const Events = mongoose.model('Event', eventSchema);
+module.exports = Events;

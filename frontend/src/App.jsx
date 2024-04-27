@@ -6,13 +6,17 @@ import CreateArtist from './pages/CreateNewArtistPage';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Auth from './Auth'
-import Profile from './components/Profile'
+
+import EventIndexPage from './pages/EventIndexPage'
+import NewEvent from './pages/EventNewPage'
 import ArtistShowPage from './pages/ArtistShowPage';
+import EventShowPage from './pages/EventShowPage';
 import EventsCalendar from './pages/EventsCalendar';
 import LandingPage from './pages/LandingPage'
 import SearchBar from './components/searchbar/SearchBar';
-// import EventNewPage from './pages/EventNewPage';
 import EventShowPage from './pages/EventShowPage';
+import EventNewPage from './pages/EventNewPage';
+import Profile from './components/Profile'
 
 
 function App() {
@@ -29,11 +33,13 @@ function App() {
                     <Route path="/signup" element={<Auth />} />
                     <Route path="/artists" element={<ArtistList />} />
                     <Route path="/calendar" element={<EventsCalendar />} />
-                     {/* <Route path="/events/new" element={<EventNewPage/>}/>  */}
-                     <Route path="/events/:id" element={<EventShowPage/>}/>
+                     <Route path="/events/new" element={<EventNewPage />}/> 
+                     <Route path="/events/:id" element={<EventShowPage />}/>
                     <Route path="/user/:id" element={<Profile/>}/>
                     <Route path="/artist/:id" element={<ArtistShowPage />} />
                     <Route path="/artists/create" element={<CreateArtist />} />
+                    <Route path="/events/list" element={<EventIndexPage />} />
+                    <Route path="/search" element={<SearchBar />} />
         
                 </Routes>
             </div>

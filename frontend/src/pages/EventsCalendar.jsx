@@ -14,8 +14,8 @@ function EventsCalendar() {
             .then(data => {
                 const calendarEvents = data.map(event => ({
                     id: event._id,
-                    title: event.name,
-                    start: event.date,
+                    title: event.title,
+                    start: event.dateStartLocalTime,
                     imageUrl: event.imageUrl, // Image URL for the event
                     allDay: true
                 }));
