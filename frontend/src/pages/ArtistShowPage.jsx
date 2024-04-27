@@ -12,12 +12,15 @@ function ArtistShowPage() {
             return;
         }
 
+        // Determine the correct endpoint based on whether a date is included
         const endpoint = artist.date ? 'http://localhost:3000/events' : 'http://localhost:3000/artists';
         const postData = {
             name: artist.name,
             date: artist.date || undefined,
             location: artist.location,
-            description: artist.description || artist.info || 'No additional information available.'
+            description: artist.description || artist.info || 'No additional information available.',
+            imageUrl: artist.imageUrl, // Include image URL for visual representation
+            url: artist.url // Link to Ticketmaster for more details
         };
 
         fetch(endpoint, {
@@ -46,16 +49,16 @@ function ArtistShowPage() {
             <h1 className="text-2xl font-bold text-center">{artist.name}</h1>
             <div className="w-full max-w-md flex flex-col items-center">
                 <img src={artist.imageUrl || '/default-image.png'} alt={artist.name} className="w-full my-4"/>
-                <p className="text-left w-full">Genre: {artist.genre || 'Not specified'}</p>
-                <p className="text-left w-full">Location: {artist.location || 'TBA'}</p>
-                <p className="text-left w-full">Date: {artist.date || 'Unknown date'}</p>A
+                {artist.location && artist.date && <p className="text-left w-full">Location: {artist.location}</p>}
+                {artist.date && <p className="text-left w-full">Date: {artist.date}</p>}
+                <a href={artist.url} target="_blank" rel="noopener noreferrer" className="text-blue-500">More Details</a>
             </div>
             <button onClick={handleAddToFavorites} 
                 className={`mt-4 bg-green-500 ${isFavorite ? 'bg-green-900' : 'hover:bg-green-700'} text-white font-bold py-2 px-4 rounded`}>
-                {isFavorite ? 'Added to Favorites' : 'Add to Favorites'}
+                {isFavorite ? 'Saved' : 'Save'}
             </button>
         </div>
     );
 }
 
-export default ArtistShowPage;
+export default ArtistShowPage

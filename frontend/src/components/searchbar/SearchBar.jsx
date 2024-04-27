@@ -14,7 +14,7 @@ function SearchBar() {
         const apiKey = import.meta.env.VITE_TICKETMASTER_API_KEY;
 
         // Determine if searching for events or artists based on input
-        const searchType = eventQuery.trim() ? "attractions" : "events"; 
+        const searchType = eventQuery.trim() ? "attractions" : "events";
         const url = `https://app.ticketmaster.com/discovery/v2/${searchType}.json?apikey=${apiKey}&classificationName=comedy&size=20&keyword=${encodeURIComponent(eventQuery)}&postalCode=${encodeURIComponent(zipCode)}`;
 
         try {
@@ -26,9 +26,9 @@ function SearchBar() {
                     name: item.name,
                     imageUrl: item.images[0]?.url || '/default-image.png',
                     location: item._embedded?.venues[0]?.name || 'TBA',
-                    date: item.dates?.start.localDate || 'Unknown date',
+                    date: item.dates?.start.localDate,
                     url: item.url,
-                    artistId: item.attractions?.[0]?.id // Save the artist ID for events
+                    isEvent: searchType === "events" // Boolean flag to indicate if it's an event
                 }));
                 setResults(formattedResults);
             } else {
@@ -82,8 +82,8 @@ function SearchBar() {
                             <div key={item.id} onClick={() => handleResultClick(item)} className="m-2 p-3 w-full sm:w-96 bg-gray-800 rounded-lg shadow-md cursor-pointer">
                                 <h3 className="text-lg font-bold">{item.name}</h3>
                                 <img src={item.imageUrl} alt={item.name} className="max-w-xs my-2"/>
-                                <p>Location: {item.location}</p>
-                                <p>Date: {item.dates}</p>
+                                {item.isEvent && <p>Location: {item.location}</p>} {/* Only show date for events */}
+                                {item.isEvent && <p>Date: {item.date}</p>} {/* Only show date for events */}
                             </div>
                                 <button onClick={() => handleDetailsClick(item)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Details</button>
                             </>
