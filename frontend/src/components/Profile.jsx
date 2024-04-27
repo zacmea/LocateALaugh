@@ -23,7 +23,7 @@ const fetchUserProfile = async () => {
 console.log(localStorage.getItem('token'))
 console.log(localStorage.getItem('id'))
 
-  const fetchUser = await fetch(``${import.meta.env.BASE_URL}/user/${id}`, {
+  const fetchUser = await fetch(`${import.meta.env.BASE_URL}/user/${id}`, {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   });
@@ -31,7 +31,7 @@ console.log(localStorage.getItem('id'))
   setUser(userDetails)
     
 const [getEvents, getArtists] = await Promise.all([
-  fetch(``${import.meta.env.BASE_URL}/events/${userDetails.registered_events}`, {
+  fetch(`${import.meta.env.BASE_URL}/events/${userDetails.registered_events}`, {
     method:'GET',
     headers: {'Authorization': `Bearer ${token}`}
   }),

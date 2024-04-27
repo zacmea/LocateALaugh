@@ -14,7 +14,6 @@ import EventShowPage from './pages/EventShowPage';
 import EventsCalendar from './pages/EventsCalendar';
 import LandingPage from './pages/LandingPage'
 import SearchBar from './components/searchbar/SearchBar';
-import EventShowPage from './pages/EventShowPage';
 import EventNewPage from './pages/EventNewPage';
 import Profile from './components/Profile'
 // import EventNewPage from './pages/EventNewPage';

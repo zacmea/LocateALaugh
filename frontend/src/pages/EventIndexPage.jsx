@@ -37,7 +37,7 @@ function EventIndex() {
         // }
         // fetchUserProfile();
 
-        fetch(`${import.meta.env.BASE_URL}/events?id=${userId}`)
+        fetch(`http://localhost:3000/events?id=${userId}`)
             .then(response => response.json())
             .then(setEvents)  //makes an array of events and their data
             .catch(error => console.error('Error fetching events:', error));
