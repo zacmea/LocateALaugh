@@ -80,41 +80,41 @@ const handleUpdate = async () => {
 }
     return (
      <>
-      <div className="inline-block items-center">
+       <div className="flex flex-col items-center justify-center min-h-screen p-4">
       {editState?  (
-        <div>
-        <input className="text-black"
+        <div className="flex flex-col items-center">
+        <input className="text-black p-1 border rounded"
         type="text"
         value={user?.username || ""}
         onChange={handleUsernameChange} 
         />
         <br />
-        <button className="text-0.5xl text-center font-bold my-6 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white py-2 px-4 rounded" onClick={handleUpdate}>Update</button>
+        <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleUpdate}>Update</button>
         </div>
       ): (
-        <div>
-        <h2>Username:"{user?.username}"</h2>
+        <div className="text-center">
+        <h2 className="text-lg font-bold">Username:"{user?.username}"</h2>
         {localStorage.getItem('id') === id && !editState && (
-          <button className="text-blue-500" onClick={handleEditState}>Edit</button>
+          <button className="mt-2 text-blue-500 hover:text-blue-700" onClick={handleEditState}>Edit</button>
         )}
        </div>
       )
       }
 <br />
       <br />
-      <img className="md:w-20 md:h-20 rounded-md border-4" src={'/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg'} alt={user?.username}/>
+      <img className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full border-4 border-gray-300 my-4" src={'/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg'} alt={user?.username}/>
       <br />
       <br />
-      <h3>Artists followed</h3>
+      <h3 className="text-lg font-bold">Artists followed</h3>
        <h3>{userArtist?.name}</h3>
       <br />
       <br />
-      <h3>Registered Events</h3>
+      <h3 className="text-lg font-bold">Registered Events</h3>
       <h3>{userEvent?.name}</h3>
       <br />
       <br />
       <Link to="/home">
-        <h3 className="text-blue-500 font-bold py-2 px-4">HOME</h3>
+      <button className="text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded">HOME</button>
 </Link>
       </div>
   </>
