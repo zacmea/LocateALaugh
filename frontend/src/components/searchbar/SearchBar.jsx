@@ -85,7 +85,7 @@ function SearchBar() {
                                 {item.isEvent && <p>Location: {item.location}</p>} {/* Only show date for events */}
                                 {item.isEvent && <p>Date: {item.date}</p>} {/* Only show date for events */}
                             </div>
-                                <button onClick={() => handleDetailsClick(item)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Details</button>
+                                {/* <button onClick={() => handleDetailsClick(item)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Details</button> */}
                             </>
                         ))
                     ) : (
