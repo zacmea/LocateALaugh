@@ -13,13 +13,11 @@ import SearchBar from './components/searchbar/SearchBar';
 import ArtistShowPage from './pages/ArtistShowPage';
 import EventShowPage from './pages/EventShowPage';
 
-// import Calendar from './components/Calendar';
+import EventsCalendar from './pages/EventsCalendar';
 import Scheduler from './components/Calendar';
 import Profile from './components/Profile'
 // import UserDashboard from './pages/UserDashboardPage'
-import Profile from './components/Profile'
-import ArtistShowPage from './pages/ArtistShowPage';
-import EventsCalendar from './pages/EventsCalendar';
+// import EventsCalendar from './pages/EventsCalendar';
 
 
 function App() {

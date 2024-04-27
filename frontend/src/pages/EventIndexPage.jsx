@@ -7,6 +7,7 @@ import EventShowPage from './EventShowPage';
 import { Navigate } from 'react-router-dom';
 
 function EventIndex() {
+    const [eventID, setEventID] = useState(null);
     const [title, setTitle] = useState("");
     const [url, setUrl] = useState("");
     // const [date, setDate] = useState("");

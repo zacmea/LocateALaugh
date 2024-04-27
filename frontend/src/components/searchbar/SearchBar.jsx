@@ -92,12 +92,13 @@ import { Link, useNavigate } from 'react-router-dom';
 // }
 
 
-
 function SearchBar() {
     const [eventQuery, setEventQuery] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [results, setResults] = useState([]);
     const [searchPerformed, setSearchPerformed] = useState(false);
+    const navigate = useNavigate();
+
     const handleSearch = async (eventQuery, zipCode) => {
         setSearchPerformed(true);
         const apiKey = import.meta.env.VITE_TICKETMASTER_API_KEY;
@@ -147,8 +148,8 @@ function SearchBar() {
     };
 
     const handleResultClick = (item) => {
-        // Navigate
-        navigate(`/artist/${item.id}`, { state: { artist: item } });
+        console.log(item)
+        // navigate(`/artists/${item.id}`, { state: { artist: item } });
     };
 
     return (
@@ -180,7 +181,7 @@ function SearchBar() {
                         results.map(item => (
                             <div key={item.id} onClick={() => handleResultClick(item)} className="m-2 p-3 w-full sm:w-96 bg-gray-800 rounded-lg shadow-md cursor-pointer">
                                 <h3 className="text-lg font-bold">{item.name}</h3>
-                                <img src={item.imageUrl} alt={item.name} className="max-w-xs my-2"/>
+                                <img src={item.images[0].url} alt={item.name} className="max-w-xs my-2"/>
                                 <p>Location: {item.location}</p>
                                 <p>Date: {item.date}</p>
                             </div>

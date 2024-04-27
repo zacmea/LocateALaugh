@@ -200,11 +200,11 @@ const NewEvent = () => {
                 required
             />
 
-            <label>TicketMaster ID:</label>
+            {/* <label>TicketMaster ID:</label> */}
             <input className="text-black"
                 type="text"
                 name="tmID"
-                value={tmID}
+                value={null}
                 onChange={e => setTmID(e.target.value)}
                 required
             />
