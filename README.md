@@ -16,7 +16,7 @@ _created by: [Aleena](https://git.generalassemb.ly/athomas022),&ensp; [Nail](htt
 - [Ticketmaster's _Discovery_ API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
 
 ## Installation Instructions
-1) Access this app on [Heroku](https://main--locatealaugh.netlify.app/), or
+1) Access this app on [Netlify](https://main--locatealaugh.netlify.app/)
 2) Fork & clone this repo.  Be sure to npm i both the front and back end to install all dependencies.
 
 ## User Stories
@@ -80,8 +80,3 @@ We plan to continue to work on addressing these issues to bring our app more int
 
 ## References
 Throughout this project, referenced ChatGPT, W3Schools, StackOverflow, the documentation for the various technologies, and our instructors.
-
-
-
-## References
-1. Reviewed the documentation on [MDN documents](https://www.w3schools.com/howto/howto_css_center-vertical.asp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all))
