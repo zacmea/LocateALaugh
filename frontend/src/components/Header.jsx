@@ -27,7 +27,7 @@ const handleLogout = () => {
 
     return(
         <header className="bg-gradient-to-r from-blue-500 to-fuchsia-500 ">
-             <h1 className="inline-flex sm:justify-center sm:items-stretch text-4xl w-full font-bold bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white">Welcome to Locate a Laugh {userName? userName : "Guest"}!</h1> 
+             <h1 className="inline-flex sm:justify-center sm:items-stretch text-4xl w-full font-bold bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white">Welcome to Locate a Laugh, {userName? userName : "Guest"}!</h1> 
              {/* Added the "? userName: "Guest" after debuuging with chatGpt*/}
             <nav className="flex-grow md:flex md:justify-center md:items-center md:space-x-4 font-bold my-6 bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white py-2 px-4">
                 <Link className="block md:inline-block hover:text-gray-300 px-3 py-2 rounded-lg md:p-2" to="/home">
